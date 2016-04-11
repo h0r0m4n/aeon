@@ -6,6 +6,5 @@
 
 ## To-do’s
 
-- use gulp.js
-- use jade
-- install
+- [ ] use gulp.js
+- [ ] use jade
