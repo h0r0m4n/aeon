@@ -2,5 +2,13 @@
   "name": "aframe-horomna",
   "description": "A thesis WebVR project",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "aframe": "^0.2.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "gulp": "^3.9.1",
+    "gulp-jade": "^1.1.0"
+  }
 }
