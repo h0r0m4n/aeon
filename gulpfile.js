@@ -9,7 +9,7 @@ var reload      = browserSync.reload;
 // CLEAN -----------------------------------------------------------------------
 
 gulp.task('clean', function () {
-  return del([
+  return del.sync([
     './dist/**/*'
   ]);
 });
