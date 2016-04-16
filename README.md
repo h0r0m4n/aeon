@@ -3,7 +3,5 @@
 ## Installation
 
 - `npm install` to download all dependencies
-
-## Issues
-
-- after second change on `.jade` or `.js` browser-sync doesn’t work
+- `gulp` to run workflow automatization
+- `gulp deploy` to to publish contents to [Github pages](https://pages.github.com/)
