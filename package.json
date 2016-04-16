@@ -6,6 +6,7 @@
   "dependencies": {
     "aframe": "^0.2.0"
   },
+  "homepage": "http://vr.horoman.com",
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "del": "^2.2.0",
