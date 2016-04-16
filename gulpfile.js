@@ -1,6 +1,6 @@
 var gulp        = require('gulp');
 var del         = require('del');
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync');
 var jade        = require('gulp-jade');
 var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
@@ -17,7 +17,9 @@ gulp.task('clean', function () {
 // JADE ------------------------------------------------------------------------
 
 gulp.task('jade', function() {
+
   var YOUR_LOCALS = {};
+
   return gulp.src('./src/*.jade')
     .pipe(jade({
       locals: YOUR_LOCALS
@@ -43,24 +45,12 @@ gulp.task('js', function() {
 
 gulp.task('js-watch', ['js'], reload);
 
-// BUILD -----------------------------------------------------------------------
+// DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('build', ['clean', 'jade', 'js']);
+gulp.task('default', ['clean', 'jade', 'js'], function () {
 
-// WATCH -----------------------------------------------------------------------
-
-gulp.task('watch', ['jade', 'js'], function () {
-
-  browserSync.init({
-    server: {
-      baseDir: './dist'
-    }
-  });
+  browserSync({server: './dist'});
 
   gulp.watch('./src/**/*.jade', ['jade-watch']);
-  gulp.watch('./src/**/*.js', ['js-watch']);
+  gulp.watch('./src/**/*.js',   ['js-watch']);
 });
-
-// DEFAULT ---------------------------------------------------------------------
-
-gulp.task('default', ['build', 'watch']);
