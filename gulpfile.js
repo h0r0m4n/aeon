@@ -5,6 +5,7 @@ var jade        = require('gulp-jade');
 var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
 var reload      = browserSync.reload;
+var ghPages     = require('gulp-gh-pages');
 
 // CLEAN -----------------------------------------------------------------------
 
@@ -45,12 +46,26 @@ gulp.task('js', function() {
 
 gulp.task('js-watch', ['js'], reload);
 
+// CNAME -----------------------------------------------------------------------
+
+gulp.task('cname', function () {
+  gulp.src(['./src/CNAME'])
+    .pipe(gulp.dest('./dist'));
+});
+
 // DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('default', ['clean', 'jade', 'js'], function () {
+gulp.task('default', ['clean', 'jade', 'js', 'cname'], function () {
 
   browserSync({server: './dist'});
 
   gulp.watch('./src/**/*.jade', ['jade-watch']);
   gulp.watch('./src/**/*.js',   ['js-watch']);
+});
+
+// DEPLOY ----------------------------------------------------------------------
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
