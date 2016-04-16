@@ -3,6 +3,10 @@
   "description": "A thesis WebVR project",
   "version": "0.0.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h0r0man/vr-horoman.git"
+  },
   "dependencies": {
     "aframe": "^0.2.0"
   },
