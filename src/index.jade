@@ -6,6 +6,10 @@ html
     meta(charset="utf-8")
     title VR by Horoman
     meta(name="description", content="VR by Horoman")
+    meta(name="robots", content="index, follow")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="theme-color" content="#{sky2}")
+    link(rel="shortcut icon", href="img/favicon.ico", type="image/ico")
     script(src="js/all.js")
   body
     a-scene
@@ -15,3 +19,5 @@ html
       a-plane(rotation="-90 0 0", width="12", height="12", color="#{ground1}")
       a-camera(position="0 1.75 4")
       a-sky(color="#{sky2}")
+    
+    span.filter
