@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var del         = require('del');
 var browserSync = require('browser-sync');
 var jade        = require('gulp-jade');
+var image       = require('gulp-image');
 var sass        = require('gulp-sass');
 var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
@@ -58,6 +59,14 @@ gulp.task('js', function() {
 
 gulp.task('js-watch', ['js'], reload);
 
+// IMAGE -----------------------------------------------------------------------
+
+gulp.task('image', function () {
+  return gulp.src('./src/img/**/*')
+    .pipe(image())
+    .pipe(gulp.dest('./dist/img/'));
+});
+
 // CNAME -----------------------------------------------------------------------
 
 gulp.task('cname', function () {
@@ -67,7 +76,7 @@ gulp.task('cname', function () {
 
 // DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('default', ['clean', 'jade', 'sass', 'js', 'cname'], function () {
+gulp.task('default', ['clean', 'jade', 'sass', 'js', 'image', 'cname'], function () {
 
   browserSync({server: './dist'});
 
