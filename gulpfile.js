@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var del         = require('del');
 var browserSync = require('browser-sync');
 var jade        = require('gulp-jade');
+var sass        = require('gulp-sass');
 var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
 var reload      = browserSync.reload;
@@ -30,6 +31,17 @@ gulp.task('jade', function() {
 
 gulp.task('jade-watch', ['jade'], reload);
 
+// SASS ------------------------------------------------------------------------
+
+gulp.task('sass', function () {
+  return gulp.src('./src/sass/**/*.{scss,sass}')
+    .pipe(sass({
+      precision: 6
+    }).on('error', sass.logError))
+    .pipe(gulp.dest('./dist/css/'))
+    .pipe(reload({stream: true}));
+});
+
 // JS --------------------------------------------------------------------------
 
 var JS_PATH = [
@@ -55,12 +67,13 @@ gulp.task('cname', function () {
 
 // DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('default', ['clean', 'jade', 'js', 'cname'], function () {
+gulp.task('default', ['clean', 'jade', 'sass', 'js', 'cname'], function () {
 
   browserSync({server: './dist'});
 
-  gulp.watch('./src/**/*.jade', ['jade-watch']);
-  gulp.watch('./src/**/*.js',   ['js-watch']);
+  gulp.watch('./src/**/*.jade',             ['jade-watch']);
+  gulp.watch('./src/sass/**/*.{scss,sass}', ['sass']);
+  gulp.watch('./src/**/*.js',               ['js-watch']);
 });
 
 // DEPLOY ----------------------------------------------------------------------
