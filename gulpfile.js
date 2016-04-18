@@ -36,7 +36,7 @@ gulp.task('jade-watch', ['jade'], reload);
 gulp.task('sass', function () {
   return gulp.src('./src/sass/**/*.{scss,sass}')
     .pipe(sass({
-      precision: 6
+      outputStyle: 'compressed'
     }).on('error', sass.logError))
     .pipe(gulp.dest('./dist/css/'))
     .pipe(reload({stream: true}));
