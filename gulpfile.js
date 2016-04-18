@@ -1,11 +1,10 @@
 var gulp        = require('gulp');
+var webpack     = require('webpack-stream');
 var del         = require('del');
 var browserSync = require('browser-sync');
 var jade        = require('gulp-jade');
 var image       = require('gulp-image');
 var sass        = require('gulp-sass');
-var uglify      = require('gulp-uglify');
-var concat      = require('gulp-concat');
 var reload      = browserSync.reload;
 var ghPages     = require('gulp-gh-pages');
 
@@ -45,16 +44,12 @@ gulp.task('sass', function () {
 
 // JS --------------------------------------------------------------------------
 
-var JS_PATH = [
-  'node_modules/aframe/dist/aframe.js',
-  './src/**/*.js'
-];
-
 gulp.task('js', function() {
-  return gulp.src(JS_PATH)
-    .pipe(concat('all.js'))
-    //.pipe(uglify()) // disable cause is very slow
-    .pipe(gulp.dest('./dist/js/'))
+  return gulp.src('./src/js/scripts.js')
+    .pipe(webpack(
+      require('./webpack.config.js')
+    ))
+    .pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('js-watch', ['js'], reload);
