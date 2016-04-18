@@ -24,7 +24,8 @@ gulp.task('jade', function() {
   var YOUR_LOCALS = {};
   return gulp.src(['./src/*.jade', '!./src/_*.jade'])
     .pipe(jade({
-      locals: YOUR_LOCALS
+      locals: YOUR_LOCALS,
+      pretty: true
     }))
     .pipe(gulp.dest('./dist/'))
 });
