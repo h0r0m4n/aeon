@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>VR by Horoman</title><meta name="description" content="VR by Horoman"><meta name="robots" content="index, follow"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#93E9CC"><link rel="stylesheet" href="css/all.css"><link rel="shortcut icon" href="img/favicon.ico" type="image/ico"><script src="js/all.js"></script></head><body><a-scene><a-sphere position="0 1.5 -1" radius="1.25" color="#DC2437"><a-image src="img/radial-shadow.png" position="0 -1.33 0" rotation="-90 0 0" scale="1.25 1.25 1.25" opacity="0.25"></a-image></a-sphere><a-cube position="-1.25 0.5 1" rotation="0 45 0" width="1" height="1" depth="1" color="#E8963B"></a-cube><a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#4E3143"></a-cylinder><a-plane rotation="-90 0 0" width="12" height="12" color="#F5EDA4"></a-plane><a-camera position="0 1.75 4"></a-camera><a-sky color="#93E9CC"></a-sky></a-scene></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR by Horoman</title>
+    <meta name="description" content="VR by Horoman">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#93E9CC">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/ico">
+    <script src="js/all.js"></script>
+  </head>
+  <body>
+    <a-scene stats>
+      <a-entity camera look-controls wasd-controls position="0 1.75 4" far="10000" fov="80" near="0.5">
+        <a-entity cursor="fuse: true;" position="0 0 -1" geometry="primitive: ring" material="color: white; shader: flat" scale="0.0125 0.0125 0.0125"></a-entity>
+      </a-entity>
+      <a-sphere position="0 1.5 -1" radius="1.25" color="#DC2437">
+        <a-image src="img/radial-shadow.png" position="0 -1.33 0" rotation="-90 0 0" scale="1.25 1.25 1.25" opacity="0.25"></a-image>
+      </a-sphere>
+      <a-cube position="-1.25 0.5 1" rotation="0 45 0" width="1" height="1" depth="1" color="#E8963B"></a-cube>
+      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#4E3143"></a-cylinder>
+      <a-model src="object/city.dae" position="-46 0 20"></a-model>
+      <a-model src="object/test-1.dae" position="3 0.25 -3"></a-model>
+      <a-model src="object/test-2.dae" position="-4 0 -2"></a-model>
+      <a-sky color="#93E9CC"></a-sky>
+    </a-scene>
+  </body>
+</html>
