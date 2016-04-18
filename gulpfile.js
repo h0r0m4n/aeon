@@ -66,6 +66,13 @@ gulp.task('image', function () {
     .pipe(gulp.dest('./dist/img/'));
 });
 
+// OBJECT ----------------------------------------------------------------------
+
+gulp.task('object', function () {
+  return gulp.src('./src/object/**/*')
+    .pipe(gulp.dest('./dist/object/'));
+});
+
 // CNAME -----------------------------------------------------------------------
 
 gulp.task('cname', function () {
@@ -75,7 +82,7 @@ gulp.task('cname', function () {
 
 // DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('default', ['clean', 'jade', 'sass', 'js', 'image', 'cname'], function () {
+gulp.task('default', ['clean', 'jade', 'sass', 'js', 'image', 'object', 'cname'], function () {
 
   browserSync({server: './dist'});
 
