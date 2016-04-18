@@ -62,7 +62,7 @@ gulp.task('js-watch', ['js'], reload);
 
 gulp.task('cname', function () {
   gulp.src(['./src/CNAME'])
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 // DEFAULT/WATCH ---------------------------------------------------------------
