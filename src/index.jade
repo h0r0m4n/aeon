@@ -15,24 +15,22 @@ html
     link(rel="shortcut icon", href="img/favicon.ico", type="image/ico")
     script(src="js/all.js")
   body
-    a-scene(stats)
+    a-scene(stats, physics)
 
-      a-entity(camera, look-controls, wasd-controls, position="0 1.75 4", far="10000", fov="80", near="0.5")
+      a-entity(camera, universal-controls, kinematic-body, position="0 1.75 4", far="10000", fov="80", near="0.5")
         a-entity(cursor="fuse: true;", position="0 0 -1", geometry="primitive: ring", material="color: white; shader: flat", scale="0.0125 0.0125 0.0125")
 
       //- filter
       //- a-entity(light="type: hemisphere; color: #{sky2}; groundColor: #{sky3}; intensity: 2")
 
-      a-sphere(position="0 1.5 -1", radius="1.25", color="#{tree4}")
+      a-sphere(static-body position="0 1.5 -1", radius="1.25", color="#{tree4}")
         a-image(src="img/radial-shadow.png", position="0 -1.33 0", rotation="-90 0 0", scale="1.25 1.25 1.25", opacity="0.25")
       
-      a-cube(position="-1.25 0.5 1", rotation="0 45 0", width="1", height="1", depth="1", color="#{tree3}")
-      a-cylinder(position="1 0.75 1", radius="0.5", height="1.5", color="#{tree2}")
+      a-cube(static-body position="-1.25 0.5 1", rotation="0 45 0", width="1", height="1", depth="1", color="#{tree3}")
+      a-cylinder(static-body position="1 0.75 1", radius="0.5", height="1.5", color="#{tree2}")
       
-      //- a-plane(rotation="-90 0 0", width="12", height="12", color="#{ground1}")
+      a-plane(static-body rotation="-90 0 0", width="12", height="12", color="#{ground3}")
 
-      //- for benchmarking only
-      a-model(src="object/city.dae", position="-46 0 20")
       a-model(src="object/test-1.dae", position="3 0.25 -3")
       a-model(src="object/test-2.dae", position="-4 0 -2")
 

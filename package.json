@@ -8,7 +8,8 @@
     "url": "git+https://github.com/h0r0man/vr-horoman.git"
   },
   "dependencies": {
-    "aframe": "^0.2.0"
+    "aframe": "^0.2.0",
+    "aframe-extras": "^1.8.2"
   },
   "homepage": "http://vr.horoman.com",
   "devDependencies": {
