@@ -7,31 +7,53 @@ html
     title VR by Horoman
     meta(name="description", content="VR by Horoman")
     meta(name="robots", content="index, follow")
-    //- meta(name="viewport", content="width=device-width, initial-scale=1")
     meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1")
-    meta(name="mobile-web-app-capable" content="yes")
+    meta(name="mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-capable", content="yes")
     meta(name="theme-color" content="#{sky2}")
     link(rel="stylesheet", href="css/all.css")
     link(rel="shortcut icon", href="img/favicon.ico", type="image/ico")
     script(src="js/all.js")
   body
-    a-scene(stats, physics)
+    //- Fog: linear|exponential
+    a-scene(stats, physics, fog="type: exponential; color: #{sky2}; density: 0.05;")
 
-      a-entity(camera, universal-controls, kinematic-body, position="0 1.75 4", far="10000", fov="80", near="0.5")
-        a-entity(cursor="fuse: true;", position="0 0 -1", geometry="primitive: ring", material="color: white; shader: flat", scale="0.0125 0.0125 0.0125")
+      //- Assets ---------------------------------------------------------------
+      a-assets
+        //- Rocks
+        a-asset-item(id="rock-01", src="object/rock-01.dae")
+        a-asset-item(id="rock-02", src="object/rock-02.dae")
+        a-asset-item(id="rock-03", src="object/rock-03.dae")
+        a-asset-item(id="rock-04", src="object/rock-04.dae")
+        a-asset-item(id="rock-05", src="object/rock-05.dae")
+        //- Plants
+        a-asset-item(id="plant-01", src="object/plant-01.dae")
+        a-asset-item(id="grass-01", src="object/grass-01.dae")
+        //- Ground
+        a-asset-item(id="ground", src="object/ground.dae")
 
-      //- filter
-      //- a-entity(light="type: hemisphere; color: #{sky2}; groundColor: #{sky3}; intensity: 2")
+      //- Camera ---------------------------------------------------------------
+      //- Test `raycaster="objects: .static-body"`
+      a-entity(id="player", camera, kinematic-body, universal-controls, position="0 1.5 4", far="10000", fov="80", near="0.5")
 
-      a-sphere(static-body position="0 1.5 -1", radius="1.25", color="#{tree4}")
-        a-image(src="img/radial-shadow.png", position="0 -1.33 0", rotation="-90 0 0", scale="1.25 1.25 1.25", opacity="0.25")
+      //- Level ----------------------------------------------------------------
+      a-entity(static-body, collada-model="#rock-01", position="1 0.5 -3")
+      a-entity(static-body, collada-model="#rock-02", position="2 0.5 -3")
+      a-entity(static-body, collada-model="#rock-03", position="3 0.5 -3")
+      a-entity(static-body, collada-model="#rock-04", position="4 0.5 -3")
+      a-entity(static-body, collada-model="#rock-05", position="5 -0.5 -3")
+
+      a-entity(static-body, collada-model="#plant-01", position="0 0.5 -3")
       
-      a-cube(static-body position="-1.25 0.5 1", rotation="0 45 0", width="1", height="1", depth="1", color="#{tree3}")
-      a-cylinder(static-body position="1 0.75 1", radius="0.5", height="1.5", color="#{tree2}")
-      
-      a-plane(static-body rotation="-90 0 0", width="12", height="12", color="#{ground3}")
+      a-entity(static-body, rotation="0 20 4")
+        a-entity(collada-model="#grass-01", position="-0.85 0.5 -3", rotation="0 45 0")
+        a-entity(collada-model="#grass-01", position="-1.25 0.5 -3.25", scale="0.75 0.75 0.75", rotation="0 -30 0")
+        a-entity(collada-model="#grass-01", position="-1.05 0.5 -3.3", scale="0.5 0.5 0.5", rotation="0 -40 0")
 
-      a-model(src="object/test-1.dae", position="3 0.25 -3")
-      a-model(src="object/test-2.dae", position="-4 0 -2")
+      a-entity(collada-model="#ground", scale="0.75 0.75 0.75", position="4 0 -5", rotation="0 -180 0")
+      a-plane(static-body rotation="-90 0 0", width="256", height="256", color="#{water2}")
 
-      a-sky(color="#{sky2}")
+      //- World ----------------------------------------------------------------
+      a-sky(color="#{sky2}", radius="1000")
+      a-light(type="directional", color="#{ground1}", intensity="0.45", position="4 2 1")
+      a-light(type="ambient", color="#{sky2")
