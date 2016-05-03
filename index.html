@@ -7,25 +7,51 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#93E9CC">
     <link rel="stylesheet" href="css/all.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/ico">
     <script src="js/all.js"></script>
   </head>
   <body>
-    <a-scene stats>
-      <a-entity camera look-controls wasd-controls position="0 1.75 4" far="10000" fov="80" near="0.5">
-        <a-entity cursor="fuse: true;" position="0 0 -1" geometry="primitive: ring" material="color: white; shader: flat" scale="0.0125 0.0125 0.0125"></a-entity>
+    <a-scene stats physics fog="type: exponential; color: #93E9CC; density: 0.05;">
+      <a-assets>
+        <a-asset-item id="rock-01" src="object/rock-01.dae"></a-asset-item>
+        <a-asset-item id="rock-02" src="object/rock-02.dae"></a-asset-item>
+        <a-asset-item id="rock-03" src="object/rock-03.dae"></a-asset-item>
+        <a-asset-item id="rock-04" src="object/rock-04.dae"></a-asset-item>
+        <a-asset-item id="rock-05" src="object/rock-05.dae"></a-asset-item>
+        <a-asset-item id="plant-01" src="object/plant-01.dae"></a-asset-item>
+        <a-asset-item id="grass-01" src="object/grass-01.dae"></a-asset-item>
+        <a-asset-item id="ground" src="object/ground.dae"></a-asset-item>
+      </a-assets>
+      <a-entity id="player" camera kinematic-body universal-controls position="0 1.5 4" far="10000" fov="80" near="0.5"></a-entity>
+      <a-entity static-body collada-model="#rock-01" position="1 0.5 -3"></a-entity>
+      <a-entity static-body collada-model="#rock-02" position="2 0.5 -3"></a-entity>
+      <a-entity static-body collada-model="#rock-03" position="3 0.5 -3"></a-entity>
+      <a-entity static-body collada-model="#rock-04" position="4 0.5 -3"></a-entity>
+      <a-entity static-body collada-model="#rock-05" position="5 -0.5 -3"></a-entity>
+      <a-entity static-body collada-model="#plant-01" position="0 0.5 -3"></a-entity>
+      <a-entity static-body rotation="0 20 4">
+        <a-entity collada-model="#grass-01" position="-0.85 0.5 -3" rotation="0 45 0"></a-entity>
+        <a-entity collada-model="#grass-01" position="-1.25 0.5 -3.25" scale="0.75 0.75 0.75" rotation="0 -30 0"></a-entity>
+        <a-entity collada-model="#grass-01" position="-1.05 0.5 -3.3" scale="0.5 0.5 0.5" rotation="0 -40 0"></a-entity>
       </a-entity>
-      <a-sphere position="0 1.5 -1" radius="1.25" color="#DC2437">
-        <a-image src="img/radial-shadow.png" position="0 -1.33 0" rotation="-90 0 0" scale="1.25 1.25 1.25" opacity="0.25"></a-image>
-      </a-sphere>
-      <a-cube position="-1.25 0.5 1" rotation="0 45 0" width="1" height="1" depth="1" color="#E8963B"></a-cube>
-      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#4E3143"></a-cylinder>
-      <a-model src="object/city.dae" position="-46 0 20"></a-model>
-      <a-model src="object/test-1.dae" position="3 0.25 -3"></a-model>
-      <a-model src="object/test-2.dae" position="-4 0 -2"></a-model>
-      <a-sky color="#93E9CC"></a-sky>
+      <a-entity position="0 3 -3" rotation="-90 -10 0" scale=".1 .1 .1">
+        <a-cube width="1" height="0.5" depth="0.4" color="#F1FFC4"></a-cube>
+        <a-cube width="0.75" height="1.5" depth="0.0625" position="0.125 -0.125 0" translate="0 1 0" color="#F1FFC4">
+          <a-animation attribute="rotation" from="45 0 0" to="-45 0 0" dur="1000" fill="forwards" repeat="indefinite" direction="alternate" begin="50"></a-animation>
+        </a-cube>
+        <a-cube width="0.75" height="1.5" depth="0.0625" position="0.125 -0.125 0" translate="0 -1 0" color="#F1FFC4">
+          <a-animation attribute="rotation" from="-45 0 0" to="45 0 0" dur="1000" fill="forwards" repeat="indefinite" direction="alternate" begin="50"></a-animation>
+        </a-cube>
+        <a-animation attribute="position" from="0 3 -3" to="0 1 -4" dur="104000" fill="forwards" repeat="indefinite" direction="alternateReversed"></a-animation>
+      </a-entity>
+      <a-entity collada-model="#ground" scale="0.75 0.75 0.75" position="4 0 -5" rotation="0 -180 0"></a-entity>
+      <a-plane static-body rotation="-90 0 0" width="256" height="256" color="#509FC0"></a-plane>
+      <a-sky color="#93E9CC" radius="1000"></a-sky>
+      <a-light type="directional" color="#F5EDA4" intensity="0.45" position="4 2 1"></a-light>
+      <a-light type="ambient" color="#{sky2"></a-light>
     </a-scene>
   </body>
 </html>
