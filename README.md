@@ -16,6 +16,8 @@
 - [ ] if statement per il gamepad SteelSeries Stratus XL utilizzando ‘analog stick’ sinistro
   - [ ] testare la libreria [aframe-gamepad-controls](https://github.com/donmccurdy/aframe-gamepad-controls)
 - [x] testare objects `.dae` animati
+- [ ] `static-body` su `.dae` o altre estensioni [1](https://github.com/donmccurdy/aframe-extras/blob/master/examples/playground/index.html#L29)
+- [ ] testare [Raycaster](https://aframe.io/docs/components/raycaster.html)
 
 ### 3D models
 
