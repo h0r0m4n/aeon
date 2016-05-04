@@ -37,7 +37,7 @@
         <a-entity collada-model="#grass-01" position="-1.25 0.5 -3.25" scale="0.75 0.75 0.75" rotation="0 -30 0"></a-entity>
         <a-entity collada-model="#grass-01" position="-1.05 0.5 -3.3" scale="0.5 0.5 0.5" rotation="0 -40 0"></a-entity>
       </a-entity>
-      <a-entity position="0 3 -3" rotation="-90 -10 0" scale=".1 .1 .1">
+      <a-entity dynamic-body position="0 3 -3" rotation="-90 -10 0" scale=".1 .1 .1" class="bird">
         <a-cube width="1" height="0.5" depth="0.4" color="#F1FFC4"></a-cube>
         <a-cube width="0.75" height="1.5" depth="0.0625" position="0.125 -0.125 0" translate="0 1 0" color="#F1FFC4">
           <a-animation attribute="rotation" from="45 0 0" to="-45 0 0" dur="1000" fill="forwards" repeat="indefinite" direction="alternate" begin="50"></a-animation>
@@ -51,7 +51,7 @@
       <a-plane static-body rotation="-90 0 0" width="256" height="256" color="#509FC0"></a-plane>
       <a-sky color="#93E9CC" radius="1000"></a-sky>
       <a-light type="directional" color="#F5EDA4" intensity="0.45" position="4 2 1"></a-light>
-      <a-light type="ambient" color="#{sky2"></a-light>
+      <a-light type="ambient" color="#93E9CC"></a-light>
     </a-scene>
   </body>
 </html>
