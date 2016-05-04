@@ -14,6 +14,7 @@
 - [x] benchmark utilizzando [fog component](https://aframe.io/docs/components/fog.html)
 - [ ] cambiare dinamicamente colore del [fog component](https://aframe.io/docs/components/fog.html) in base alla posizione
 - [ ] if statement per il gamepad SteelSeries Stratus XL utilizzando ‘analog stick’ sinistro
+- [x] testare objects `.dae` animati
 
 ### 3D models
 
