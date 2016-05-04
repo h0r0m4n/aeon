@@ -80,7 +80,10 @@ gulp.task('cname', function () {
 
 gulp.task('default', ['clean', 'jade', 'sass', 'js', 'image', 'object', 'cname'], function () {
 
-  browserSync({server: './dist'});
+  browserSync({
+    server: './dist',
+    port: 2016
+  });
 
   gulp.watch('./src/**/*.jade',             ['jade-watch']);
   gulp.watch('./src/sass/**/*.{scss,sass}', ['sass']);
