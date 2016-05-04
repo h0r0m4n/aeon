@@ -11,15 +11,54 @@
 - [ ] testare spread animation con three.js
 - [ ] benchmark multistanza di un’unico oggetto
 - [ ] benchmark testare display:none e position-x: -9999
-- [ ] benchmark utilizzando [fog component](https://aframe.io/docs/components/fog.html)
-- [ ] cambiare colore del [fog component](https://aframe.io/docs/components/fog.html) in base alla posizione
+- [x] benchmark utilizzando [fog component](https://aframe.io/docs/components/fog.html)
+- [ ] cambiare dinamicamente colore del [fog component](https://aframe.io/docs/components/fog.html) in base alla posizione
 - [ ] if statement per il gamepad SteelSeries Stratus XL utilizzando ‘analog stick’ sinistro
+
+### 3D models
+
+- [ ] Ground
+- [ ] Mountains
+  - [ ] Variation 1
+  - [ ] Variation 2
+  - [ ] Variation 3
+- [ ] Cavern
+- [ ] Clouds
+  - [ ] Variation 1
+  - [ ] Variation 2
+  - [ ] Variation 3
+- [ ] Sun
+- [ ] Plants
+  - [x] Variation 1
+  - [ ] Variation 2
+  - [ ] Variation 3
+- [ ] Grass
+  - [x] Variation 1
+  - [ ] Variation 2
+  - [ ] Variation 3
+- [x] Rocks
+  - [x] Variation 1
+  - [x] Variation 2
+  - [x] Variation 3
+- [ ] Trees
+  - [ ] Variation 1
+  - [ ] Variation 2
+  - [ ] Variation 3
+
+### Characters
+
+- [x] Bird
+- [ ] Bee
+
+## Other
+
+- [ ] Sea/Water
 
 ## Technologies
 
-- Node.js
-- npm
-- Webpack
-- gulp.js
-- Tree.js
 - A-Frame
+- Tree.js
+- gulp.js
+- Webpack
+- npm
+- Node.js
