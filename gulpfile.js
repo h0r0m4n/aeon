@@ -85,9 +85,9 @@ gulp.task('default', ['clean', 'jade', 'sass', 'js', 'image', 'object', 'cname']
     port: 2016
   });
 
-  gulp.watch('./src/**/*.jade',             ['jade-watch']);
-  gulp.watch('./src/sass/**/*.{scss,sass}', ['sass']);
-  gulp.watch('./src/**/*.js',               ['js-watch']);
+  gulp.watch(['./src/**/*.jade', './src/**/_*.jade'], ['jade-watch']);
+  gulp.watch('./src/sass/**/*.{scss,sass}',           ['sass']);
+  gulp.watch('./src/**/*.js',                         ['js-watch']);
 });
 
 // DEPLOY ----------------------------------------------------------------------
