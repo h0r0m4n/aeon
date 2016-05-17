@@ -8,7 +8,7 @@
 
 ## To-do’s
 
-- [ ] testare spread animation con three.js
+- [x] testare spread animation con three.js, [1](https://github.com/JoshGalvin/SpineFrame/)
 - [ ] benchmark multistanza di un’unico oggetto
 - [ ] benchmark testare display:none e position-x: -9999
 - [x] benchmark utilizzando [fog component](https://aframe.io/docs/components/fog.html)
@@ -66,3 +66,25 @@
 - Webpack
 - npm
 - Node.js
+
+## da fare per issue
+
+- IDEA: heatmap > google maps > xml data points y (altezze) > per farli leggere a d3.js e far posizionare oggetti primitivi
+
+1. far vedere la situazione corrente che non funziona
+2. si può utilizzare d3.js per il beneficio di array e assimilare un modello 3D con degli oggetti primitivi all’interno con il static-body, esempi: [video](https://youtu.be/Tb2b5nFmmsM?t=21m23s), [array](https://dzone.com/articles/render-geographic-information)
+3. cannon.js > chiedere se si possa integrare ulteriori componenti per la fisica e collissioni,  [componenti](https://github.com/schteppe/cannon.js/tree/master/src) in [quella sua](https://github.com/donmccurdy/aframe-extras/tree/master/lib), [slide](http://www.slideshare.net/MozVR/build-the-virtual-reality-web-with-aframe/), [3](http://blockbuilder.org/enjalot/1fd196cd99f8d58a56d3), [4]()
+  - [video](https://air.mozilla.org/josh-carpenter-building-a-virtual-reality-web-experience/) 25:00
+4. three.js > ha integrata la fisica interna
+
+***
+
+- Provare a testare [1 - utilizza cannon](https://github.com/ngokevin/aframe-physics-components), [2](https://github.com/dmarcos/a-invaders/tree/master/js/components) con modelli 3D
+
+***
+
+*update: may 13*
+
+- fare un modulo con cannon.js
+  - opzionalmente migliorare [1](https://github.com/ngokevin/aframe-physics-components)
+- se non risponte tipo google lo sollecito

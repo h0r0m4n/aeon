@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Roman Horokhovatskyy -- Design -- @h0r0man
+  Giuseppe Messina -- Supervision -- @Kz_M
+
+# THANKS
+
+  Don McCurdy
+
+# TECHNOLOGY COLOPHON
+
+  CSS3, HTML5
+  A-Frame, three.js, Jade, Sass, Gulp.js, BrowserSync, npm

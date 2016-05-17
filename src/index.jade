@@ -2,75 +2,34 @@ include _vars.jade
 
 doctype html
 html
-  head
-    meta(charset="utf-8")
-    title VR by Horoman
-    meta(name="description", content="VR by Horoman")
-    meta(name="robots", content="index, follow")
-    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1")
-    meta(name="mobile-web-app-capable", content="yes")
-    meta(name="apple-mobile-web-app-capable", content="yes")
-    meta(name="theme-color" content="#{sky2}")
-    link(rel="stylesheet", href="css/all.css")
-    link(rel="shortcut icon", href="img/favicon.ico", type="image/ico")
-    script(src="js/all.js")
+  include _head.jade
   body
-    //- Fog: linear|exponential
-    a-scene(stats, physics, fog="type: exponential; color: #{sky2}; density: 0.05;")
-
-      //- Assets ---------------------------------------------------------------
-      a-assets
-        //- Rocks
-        a-asset-item(id="rock-01", src="object/rock-01.dae")
-        a-asset-item(id="rock-02", src="object/rock-02.dae")
-        a-asset-item(id="rock-03", src="object/rock-03.dae")
-        a-asset-item(id="rock-04", src="object/rock-04.dae")
-        a-asset-item(id="rock-05", src="object/rock-05.dae")
-        //- Plants
-        a-asset-item(id="plant-01", src="object/plant-01.dae")
-        a-asset-item(id="grass-01", src="object/grass-01.dae")
-        //- Ground
-        a-asset-item(id="ground", src="object/ground.dae")
-
-      //- Camera ---------------------------------------------------------------
-      //- Test `raycaster="objects: .static-body"`
-      a-entity(id="player", camera, kinematic-body, universal-controls, position="0 1.5 4", far="10000", fov="80", near="0.5")
-
-      //- Level ----------------------------------------------------------------
-      a-entity(static-body, collada-model="#rock-01", position="1 0.5 -3")
-      a-entity(static-body, collada-model="#rock-02", position="2 0.5 -3")
-      a-entity(static-body, collada-model="#rock-03", position="3 0.5 -3")
-      a-entity(static-body, collada-model="#rock-04", position="4 0.5 -3")
-      a-entity(static-body, collada-model="#rock-05", position="5 -0.5 -3")
-
-      a-entity(static-body, collada-model="#plant-01", position="0 0.5 -3")
+    //- a-scene(stats, fog="type: exponential; color: #{fog}; density: 0.05;", vr-mode-ui="enabled: false")
+    a-scene#scene(stats, vr-mode-ui="enabled: false")
       
-      a-entity(static-body, rotation="0 20 4")
-        a-entity(collada-model="#grass-01", position="-0.85 0.5 -3", rotation="0 45 0")
-        a-entity(collada-model="#grass-01", position="-1.25 0.5 -3.25", scale="0.75 0.75 0.75", rotation="0 -30 0")
-        a-entity(collada-model="#grass-01", position="-1.05 0.5 -3.3", scale="0.5 0.5 0.5", rotation="0 -40 0")
+      include _assets.jade
+      
+      //- LEVEL ----------------------------------------------------------------
 
-      //- Bird
-      a-entity(dynamic-body, class="bird", position="0 3 -3", rotation="-90 -10 0", scale=".1 .1 .1")
-        
-        //- Body
-        a-cube(width="1", height="0.5", depth="0.4", color="#{sky1}")
-        
-        //- Wing 1
-        a-cube(width="0.75", height="1.5", depth="0.0625", position="0.125 -0.125 0", translate="0 1 0", color="#{sky1}")
-          a-animation(attribute="rotation", from="45 0 0", to="-45 0 0", dur="1000", fill="forwards", repeat="indefinite", direction="alternate", begin="50")
+      include _geometries.jade
+      include _animations.jade
 
-        //- Wing 2
-        a-cube(width="0.75", height="1.5", depth="0.0625", position="0.125 -0.125 0", translate="0 -1 0", color="#{sky1}")
-          a-animation(attribute="rotation", from="-45 0 0", to="45 0 0", dur="1000", fill="forwards", repeat="indefinite", direction="alternate", begin="50")
-        
-        //- a-animation(attribute="rotation", from="-45 0 0", to="45 0 0", dur="1000", fill="forwards", repeat="indefinite", direction="alternate", begin="50")
-        a-animation(attribute="position", from="0 3 -3", to="0 1 -4", dur="104000", fill="forwards", repeat="indefinite", direction="alternateReversed")
+      //- a-entity(collada-model="#terrain", position="0 0 0")
 
-      a-entity(collada-model="#ground", scale="0.75 0.75 0.75", position="4 0 -5", rotation="0 -180 0")
-      a-plane(static-body rotation="-90 0 0", width="256", height="256", color="#{water2}")
+      a-entity(geometry="primitive: plane; height: 64; width: 64", material="color: #{neutral}", rotation="-90 0 0")
 
-      //- World ----------------------------------------------------------------
-      a-sky(color="#{sky2}", radius="1000")
-      a-light(type="directional", color="#{ground1}", intensity="0.45", position="4 2 1")
-      a-light(type="ambient", color="#{sky2}")
+      //- WORLD ----------------------------------------------------------------
+      
+      //- Lights -----------------------------
+
+      a-light(type="ambient", color="#{lightAmbient}")
+      a-light(type="directional", color="#{lightDirectional}", intensity="0.2", position="-1 2 1")
+      
+      //- Sky --------------------------------
+      
+      a-sky(color="#{sky}")
+      
+      //- PLAYER ---------------------------------------------------------------
+      
+      //- https://github.com/donmccurdy/aframe-extras/tree/master/src/controls#input-devices
+      a-entity#player(camera, universal-controls, position="0 1.8 4", rotation="0 0 0")

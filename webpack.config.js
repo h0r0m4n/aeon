@@ -10,8 +10,11 @@ module.exports = {
     filename: "all.js"
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      'd3': 'd3'
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false })
+    // new webpack.optimize.UglifyJsPlugin({ minimize: true, mangle: false, sourcemap: false });
   ]
 };
