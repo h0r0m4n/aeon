@@ -1,3 +1,4 @@
 require('aframe');
-require('aframe-extras').controls.registerAll();
+var extras = require('aframe-extras');
+extras.controls.registerAll();
 require('d3');
