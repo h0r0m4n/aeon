@@ -4,30 +4,60 @@ doctype html
 html
   include _head.jade
   body
-    //- a-scene(stats, fog="type: exponential; color: #{fog}; density: 0.05;", vr-mode-ui="enabled: false")
+    //- a-scene(stats, fog="type: exponential; color: #{fog1}; density: 0.05;", vr-mode-ui="enabled: false")
     a-scene#scene(stats, vr-mode-ui="enabled: false")
       
       include _assets.jade
       
       //- LEVEL ----------------------------------------------------------------
 
-      include _geometries.jade
       include _animations.jade
 
-      //- a-entity(collada-model="#terrain", position="0 0 0")
+      //- GRASS GROUP 1
+      a-entity(collada-model="#grass-1", position="5 0 -5")
+      a-entity(collada-model="#grass-1", position="2 0 -10")
+      a-entity(collada-model="#grass-1", position="7 0 -12")
+      a-entity(collada-model="#grass-1", position="-1.75 0 -4")
+      a-entity(collada-model="#grass-1", position="0 0 -2")
+      a-entity(collada-model="#grass-1", position="-3.5 0 -2.5")
 
-      a-entity(geometry="primitive: plane; height: 64; width: 64", material="color: #{neutral}", rotation="-90 0 0")
+      //- TREE GROUP 1
+      a-entity(collada-model="#tree-1", position="-3 0 -2")
+      a-entity(collada-model="#tree-1", position="-4.5 0 -3", scale="0.75 0.75 0.75")
+      a-entity(collada-model="#tree-1", position="-1 0 -4")
+      a-entity(collada-model="#tree-1", position="-2.5 0 -4.5")
+      a-entity(collada-model="#tree-1", position="-2.5 0 -8")
+      
+      //- TREE GROUP 2
+      a-entity(collada-model="#tree-1", position="2.5 0 -10")
+      a-entity(collada-model="#tree-1", position="1.5 0 -12")
+      a-entity(collada-model="#tree-1", position="0.75 0 -11", scale="0.75 0.75 0.75")
+      a-entity(collada-model="#tree-1", position="4.5 0 -15")
+      a-entity(collada-model="#tree-1", position="3 0 -16")
+      
+      // TREE 2
+      a-entity(collada-model="#tree-2", position="7.5 0 -12")
+      
+      // TREE 3
+      a-entity(collada-model="#tree-3", position="-5 0 -1")
+      
+      // TERRAIN/GROUND
+      a-entity(collada-model="#ground-diana", position="0 0 0")
+
+      //- a-entity(geometry="primitive: box; width: 1; height: 1; depth: 1", material="color: #{object1}", position="3 0 4.5")
+      //- a-entity(geometry="primitive: circle; radius: 512", material="side: double; color: #{ground1}", position="0 0 0", rotation="-90 0 0")
 
       //- WORLD ----------------------------------------------------------------
       
       //- Lights -----------------------------
 
-      a-light(type="ambient", color="#{lightAmbient}")
-      a-light(type="directional", color="#{lightDirectional}", intensity="0.2", position="-1 2 1")
-      
+      a-light(type="ambient", color="#{lightAmbient1}")
+      a-light(type="directional", color="#{lightDirectional1}", intensity="0.5", position="0 25 25")
+      a-light(type="hemisphere", color="#{hemisphere1}", intensity="0.5", position="0 0 -4")
+
       //- Sky --------------------------------
       
-      a-sky(color="#{sky}")
+      a-sky(color="#{sky1}", radius="1000")
       
       //- PLAYER ---------------------------------------------------------------
       

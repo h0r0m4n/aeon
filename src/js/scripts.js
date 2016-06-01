@@ -1,48 +1,121 @@
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
+// Trigger livello
+
+// 1. Prendendere i dati della position dal selettore camera
+// 2. Utilizzando qualcosa come addEventListener per i cambiamenti della position (con un timeout)
+// 3. Idee per condizioni in base ai dati della position
+// 4. Potenzialità del D3
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
 // D3 --------------------------------------------------------------------------
 
-d3.select('html').style('background-color', 'pink');
+
 
 // POSITION --------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  var playerCamera   = document.querySelector('a-entity[camera]');
-  var playerPosition = playerCamera.getAttribute('position');
-  var playerRotation = playerCamera.getAttribute('rotation');
+  var playerCamera = document.getElementById('player');
 
-  console.log('Position: ' + JSON.stringify(playerPosition));
-  console.log('Rotation: ' + JSON.stringify(playerRotation));
+  // d3.select('html')
+  //   .transition().duration(500)
+  //   .style('background-color', 'red');
+  //
+  // d3.select('a-sky')
+  //   .transition().duration(5000)
+  //   .attr('color', 'red');
+    //.style({color: 'black'});
+    // .color('#000');
+
+//  console.log(playerPosition);
+//  console.log(playerRotation);
+
+  levelTrigger();
 
   function levelTrigger() {
-    // https://aframe.io/docs/core/entity.html#Listening-for-Component-Changes
-    if (playerPosition) {
-      this.addEventListener('componentchanged', function (evt) {
-        // console.log('Position: ' + evt.newData);
+    var playerPosition = playerCamera.getAttribute('position'),
+        playerRotation = playerCamera.getAttribute('rotation'),
+        positionResult = {};
 
-        if (evt.name === 'position') {
-          console.log('Entity has moved from', evt.oldData, 'to', evt.newData, '!');
-
-          // in base alla specifica posizione uso d3 per animare fog, luci ecc. [vedi pen]
-          // http://codepen.io/horoman/pen/NNVXbg
-        }
-      });
+    var caverna = {
+      x: 3,
+      y: 0,
+      z: 4.5
     };
-  }
 
-  setInterval(function () {
-    levelTrigger();
-  }, 3000);
+    // https://youtu.be/hM9h1wN4rfU
+    var Objs = function() {
+      this.caverna = function() {
+        // TODO es.: spostare position appena arrivi vicino
 
-  // https://github.com/aframevr/aframe/blob/master/src/systems/camera.js#L34
-  if (playerPosition == '0 1.8 4') { console.log('Started!'); }
-  if (playerPosition == {x: 0, y: 1.8, z: 4}) { console.log('Started!'); }
-  if (playerPosition == {'x': 0, 'y': 1.8, 'z': 4}) { console.log('Started!'); }
-  if (playerPosition == {'x': '0', 'y': '1.8', 'z': '4'}) { console.log('Started!'); }
-  // if (playerPosition == {x: 0, y: 1.8, z: 4}) {
-  //   console.log('Started!');
-  // } else {
-  //   console.log('Moved!');
-  // };
+        return {
+          x: 4.3,
+          y: 0,
+          z: 4.6
+        }
+      }
+
+      this.albero = function() {
+        console.log('albero');
+
+        return {
+          x: 4,
+          y: 0,
+          z: 8
+        }
+      }
+
+      this.mare = function() {
+        console.log('mare')
+
+        return {
+          x: 1,
+          y: 0,
+          z: 0
+        }
+      }
+    };
+
+    var instanceCollision = new Objs();
+
+    // se voglio manipolare le coordinate in Objs faccio qualcosa del genere:
+    console.log(instanceCollision.caverna);
+
+    var componentChanged = function(e) {
+      positionResult = e.target.getAttribute('position');
+
+      // console.log('Position: ', e.target.getAttribute('position'));
+
+      // IDEA 1:
+      // ci deve essere un range automatizzato preso da es.: caverna
+      // cavera: x: 4.3, y: 0, z: 4.6
+      // aggiungere quindi x: + 0.5 e z: + 0.5 e y lasciarlo così come é!
+
+      // IDEA 2:
+      // posso aggiungere filtri `-webkit-filter` per determinate posizioni
+
+      if (positionResult.z > 4.3 && positionResult.z < 4.6) {
+        // TODO caverna collision
+        // console.log('funziona ###############################################');
+        // d3.select('a-sky')
+        //   .transition().duration(1000)
+        //   .attr('color', 'red');
+      } else {
+        // d3.select('a-sky')
+        //   .attr('color', 'green');
+      }
+    };
+
+    if (playerPosition) {
+      playerCamera.addEventListener('componentchanged', componentChanged);
+    };
+  };
 });
 
 // STATS -----------------------------------------------------------------------

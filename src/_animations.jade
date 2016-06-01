@@ -5,12 +5,12 @@
 a-entity.bird(position="0 3 -3", rotation="-90 -10 0", scale=".1 .1 .1")
 
   //- Body
-  a-cube(width="1", height="0.5", depth="0.4", color="#{sky1}")
+  a-cube(width="1", height="0.5", depth="0.4", color="#{object1}")
   
   //- Wing 1
-  a-cube(width="0.75", height="1.5", depth="0.0625", position="0.125 -0.125 0", translate="0 1 0", color="#{sky1}")
+  a-cube(width="0.75", height="1.5", depth="0.0625", position="0.125 -0.125 0", translate="0 1 0", color="#{object1}")
     a-animation(attribute="rotation", from="45 0 0", to="-45 0 0", dur="1000", fill="forwards", repeat="indefinite", direction="alternate", begin="50")
 
   //- Wing 2
-  a-cube(width="0.75", height="1.5", depth="0.0625", position="0.125 -0.125 0", translate="0 -1 0", color="#{sky1}")
+  a-cube(width="0.75", height="1.5", depth="0.0625", position="0.125 -0.125 0", translate="0 -1 0", color="#{object1}")
     a-animation(attribute="rotation", from="-45 0 0", to="45 0 0", dur="1000", fill="forwards", repeat="indefinite", direction="alternate", begin="50")

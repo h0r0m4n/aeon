@@ -8,6 +8,8 @@
 
 ## To-do’s
 
+- [ ] camera che prende tutta l’isola e poi si avvicina per poter giocare
+- [ ] fare mirroring del gameplay su un altro pc
 - [x] testare spread animation con three.js, [1](https://github.com/JoshGalvin/SpineFrame/)
 - [ ] benchmark multistanza di un’unico oggetto
 - [ ] benchmark testare display:none e position-x: -9999
@@ -38,16 +40,16 @@
   - [ ] Variation 3
 - [ ] Grass
   - [x] Variation 1
-  - [ ] Variation 2
+  - [x] Variation 2
   - [ ] Variation 3
 - [x] Rocks
   - [x] Variation 1
   - [x] Variation 2
   - [x] Variation 3
-- [ ] Trees
-  - [ ] Variation 1
-  - [ ] Variation 2
-  - [ ] Variation 3
+- [x] Trees
+  - [x] Variation 1
+  - [x] Variation 2
+  - [x] Variation 3
 
 ### Characters
 
@@ -85,6 +87,15 @@
 
 *update: may 13*
 
-- fare un modulo con cannon.js
-  - opzionalmente migliorare [1](https://github.com/ngokevin/aframe-physics-components)
-- se non risponte tipo google lo sollecito
+- [x] fare un modulo con cannon.js
+  - [x] opzionalmente migliorare [1](https://github.com/ngokevin/aframe-physics-components)
+- [x] se non risponte tipo google lo sollecito
+
+***
+
+*update: may 24*
+
+- point light animato http://wizgrav.github.io/aframe/examples/test/shaders/
+- pivot http://wizgrav.github.io/aframe/examples/test/pivot/
+- luci dinamici http://wizgrav.github.io/aframe/examples/test/physical/
+- animazioni base http://wizgrav.github.io/aframe/examples/test/geometry-gallery/
