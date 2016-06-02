@@ -96,7 +96,10 @@ gulp.task('default', ['clean', 'jade', 'scripts', 'stylesheets', 'images', 'obje
 
   browserSync({
     server: './dist',
-    port: 2016
+    port: 1565,
+    ghostMode: false,
+    browser: ['google chrome'],
+    notify: false
   });
 
   gulp.watch('./src/**/*.jade',             ['jade-watch']);
