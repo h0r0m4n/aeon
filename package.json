@@ -1,18 +1,18 @@
 {
-  "name": "vr-horoman",
-  "description": "A thesis WebVR project",
-  "version": "0.0.2",
+  "name": "aeon",
+  "description": "A prequel WebVR environment to videogame Aeon",
+  "version": "0.0.3",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/h0r0man/vr-horoman.git"
+    "url": "git+https://github.com/h0r0man/aeon.git"
   },
   "dependencies": {
     "aframe": "^0.2.0",
     "aframe-extras": "^1.16.2",
     "d3": "^3.5.17"
   },
-  "homepage": "http://vr.horoman.com",
+  "homepage": "http://aeon.horoman.com",
   "devDependencies": {
     "browser-sync": "^2.12.10",
     "del": "^2.2.0",
