@@ -98,8 +98,8 @@ gulp.task('default', ['clean', 'jade', 'scripts', 'stylesheets', 'images', 'obje
     server: './dist',
     port: 1565,
     ghostMode: false,
-    browser: ['google chrome'],
-    notify: false
+    open: false,
+    notify: false,
   });
 
   gulp.watch('./src/**/*.jade',             ['jade-watch']);
