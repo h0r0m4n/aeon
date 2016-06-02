@@ -1,0 +1,61 @@
+//- a-scene(stats, fog="type: exponential; color: #{fog1}; density: 0.05;", vr-mode-ui="enabled: false")
+a-scene#scene(stats)
+  
+  //- ASSETS ---------------------------------------------------------------
+
+  include _assets.jade
+  
+  //- LEVEL ----------------------------------------------------------------
+
+  include _animations.jade
+
+  //- GRASS GROUP 1
+  a-entity(collada-model="#grass-1", position="5 0 -5")
+  a-entity(collada-model="#grass-1", position="2 0 -10")
+  a-entity(collada-model="#grass-1", position="7 0 -12")
+  a-entity(collada-model="#grass-1", position="-1.75 0 -4")
+  a-entity(collada-model="#grass-1", position="0 0 -2")
+  a-entity(collada-model="#grass-1", position="-3.5 0 -2.5")
+
+  //- TREE GROUP 1
+  a-entity(collada-model="#tree-1", position="-3 0 -2")
+  a-entity(collada-model="#tree-1", position="-4.5 0 -3", scale="0.75 0.75 0.75")
+  a-entity(collada-model="#tree-1", position="-1 0 -4")
+  a-entity(collada-model="#tree-1", position="-2.5 0 -4.5")
+  a-entity(collada-model="#tree-1", position="-2.5 0 -8")
+  
+  //- TREE GROUP 2
+  a-entity(collada-model="#tree-1", position="2.5 0 -10")
+  a-entity(collada-model="#tree-1", position="1.5 0 -12")
+  a-entity(collada-model="#tree-1", position="0.75 0 -11", scale="0.75 0.75 0.75")
+  a-entity(collada-model="#tree-1", position="4.5 0 -15")
+  a-entity(collada-model="#tree-1", position="3 0 -16")
+  
+  // TREE 2
+  a-entity(collada-model="#tree-2", position="7.5 0 -12")
+  
+  // TREE 3
+  a-entity(collada-model="#tree-3", position="-5 0 -1")
+  
+  // TERRAIN/GROUND
+  a-entity(collada-model="#ground-128", position="0 0 0", scale="1 1 1")
+
+  //- a-entity(geometry="primitive: box; width: 1; height: 1; depth: 1", material="color: #{object1}", position="3 0 4.5")
+  //- a-entity(geometry="primitive: circle; radius: 512", material="side: double; color: #{ground1}", position="0 0 0", rotation="-90 0 0")
+
+  //- WORLD ----------------------------------------------------------------
+  
+  //- Lights -----------------------------
+
+  a-light(type="ambient", color="#{lightAmbient1}")
+  a-light(type="directional", color="#{lightDirectional1}", intensity="0.5", position="0 25 25")
+  //- a-light(type="hemisphere", color="#{hemisphere1}", intensity="0.5", position="0 0 -4")
+
+  //- Sky --------------------------------
+  
+  a-sky(color="#{sky1}", radius="1000")
+  
+  //- PLAYER ---------------------------------------------------------------
+  
+  //- https://github.com/donmccurdy/aframe-extras/tree/master/src/controls#input-devices
+  a-entity#player(camera, universal-controls, position="0 1.8 4", rotation="0 0 0")
