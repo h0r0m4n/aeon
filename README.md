@@ -1,4 +1,6 @@
-# VR Horoman
+# Aeon
+
+A prequel WebVR environment to videogame Aeon
 
 ## Installation
 
