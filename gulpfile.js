@@ -99,9 +99,9 @@ gulp.task('default', ['clean', 'jade', 'scripts', 'stylesheets', 'images', 'obje
     port: 2016
   });
 
-  gulp.watch('./src/**/*.jade',                    ['jade-watch']);
-  gulp.watch('./src/js/**/*.js',                   ['scripts-watch']);
-  gulp.watch('./src/stylesheets/**/*.{scss,sass}', ['stylesheets']);
+  gulp.watch('./src/**/*.jade',             ['jade-watch']);
+  gulp.watch('./src/js/**/*.js',            ['scripts-watch']);
+  gulp.watch('./src/sass/**/*.{scss,sass}', ['stylesheets']);
 });
 
 // DEPLOY ----------------------------------------------------------------------
