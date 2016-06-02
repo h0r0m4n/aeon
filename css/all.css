@@ -1,1 +1,1 @@
-body{margin:0}
+body{font-family:sans-serif;background-color:#000;color:#FFF;margin:0}.loading{height:100vh;width:100vw;display:flex;align-items:center}.box{text-align:center;width:100%}@keyframes fade{from{opacity:0}to{opacity:1}}.loaded{font-size:24px;text-transform:uppercase;letter-spacing:2px;font-weight:700}.loaded-1{animation:fade 750ms infinite}.loaded-2{animation:fade 750ms 125ms infinite}.loaded-3{animation:fade 750ms 250ms infinite}
