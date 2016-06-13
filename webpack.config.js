@@ -3,6 +3,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: [
     "./src/js/libs.js",
+    "./src/js/controls.js",
     "./src/js/scripts.js"
   ],
   output: {
