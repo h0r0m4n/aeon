@@ -5,14 +5,14 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
     </contributor>
-    <created>2016-06-06T03:40:29</created>
-    <modified>2016-06-06T03:40:29</modified>
+    <created>2016-06-13T19:39:16</created>
+    <modified>2016-06-13T19:39:16</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_images/>
   <library_effects>
-    <effect id="medium_orange_leaves-effect">
+    <effect id="Material-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -25,9 +25,6 @@
             <diffuse>
               <color sid="diffuse">0.5647116 0.08865559 0.02217389 1</color>
             </diffuse>
-            <transparency>
-              <float sid="transparency">1</float>
-            </transparency>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>
             </index_of_refraction>
@@ -35,7 +32,7 @@
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="medium_orange_base-effect">
+    <effect id="Material_001-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -48,9 +45,6 @@
             <diffuse>
               <color sid="diffuse">0.3139887 0.1529262 0.09530747 1</color>
             </diffuse>
-            <transparency>
-              <float sid="transparency">1</float>
-            </transparency>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>
             </index_of_refraction>
@@ -60,11 +54,11 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="medium_orange_leaves-material" name="medium_orange_leaves">
-      <instance_effect url="#medium_orange_leaves-effect"/>
+    <material id="Material-material" name="Material">
+      <instance_effect url="#Material-effect"/>
     </material>
-    <material id="medium_orange_base-material" name="medium_orange_base">
-      <instance_effect url="#medium_orange_base-effect"/>
+    <material id="Material_001-material" name="Material_001">
+      <instance_effect url="#Material_001-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -93,7 +87,7 @@
         <vertices id="Crown3_Icosphere_004-mesh-vertices">
           <input semantic="POSITION" source="#Crown3_Icosphere_004-mesh-positions"/>
         </vertices>
-        <polylist material="medium_orange_leaves-material" count="130">
+        <polylist material="Material-material" count="130">
           <input semantic="VERTEX" source="#Crown3_Icosphere_004-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Crown3_Icosphere_004-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -126,7 +120,7 @@
         <vertices id="Bole_Plane-mesh-vertices">
           <input semantic="POSITION" source="#Bole_Plane-mesh-positions"/>
         </vertices>
-        <polylist material="medium_orange_base-material" count="36">
+        <polylist material="Material_001-material" count="36">
           <input semantic="VERTEX" source="#Bole_Plane-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Bole_Plane-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -138,22 +132,22 @@
   <library_controllers/>
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
-      <node id="medium_orange_leaves" name="medium_orange_leaves" type="NODE">
+      <node id="world_4_tree_2_leaves" name="world_4_tree_2_leaves" type="NODE">
         <matrix sid="transform">2.1 0 0 0 0 -3.42133e-7 -2.1 0 0 2.1 -3.42133e-7 0 0 0 0 1</matrix>
-        <instance_geometry url="#Crown3_Icosphere_004-mesh" name="medium_orange_leaves">
+        <instance_geometry url="#Crown3_Icosphere_004-mesh" name="world_4_tree_2_leaves">
           <bind_material>
             <technique_common>
-              <instance_material symbol="medium_orange_leaves-material" target="#medium_orange_leaves-material"/>
+              <instance_material symbol="Material-material" target="#Material-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
       </node>
-      <node id="medium_orange_base" name="medium_orange_base" type="NODE">
+      <node id="world_4_tree_2_base" name="world_4_tree_2_base" type="NODE">
         <matrix sid="transform">2.1 0 0 0 0 -3.42133e-7 -2.1 0 0 2.1 -3.42133e-7 0 0 0 0 1</matrix>
-        <instance_geometry url="#Bole_Plane-mesh" name="medium_orange_base">
+        <instance_geometry url="#Bole_Plane-mesh" name="world_4_tree_2_base">
           <bind_material>
             <technique_common>
-              <instance_material symbol="medium_orange_base-material" target="#medium_orange_base-material"/>
+              <instance_material symbol="Material_001-material" target="#Material_001-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>

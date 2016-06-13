@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
+    </contributor>
+    <created>2016-06-13T19:21:15</created>
+    <modified>2016-06-13T19:21:15</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="world_2_tree_leaves_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.6104956 0.04091521 0.02415763 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="world_2_tree_base_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.6938719 0.6938719 0.6938719 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="world_2_tree_leaves_001-material" name="world_2_tree_leaves_001">
+      <instance_effect url="#world_2_tree_leaves_001-effect"/>
+    </material>
+    <material id="world_2_tree_base_001-material" name="world_2_tree_base_001">
+      <instance_effect url="#world_2_tree_base_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Icosphere_000-mesh" name="Icosphere.000">
+      <mesh>
+        <source id="Icosphere_000-mesh-positions">
+          <float_array id="Icosphere_000-mesh-positions-array" count="30">0.3354284 -0.05414628 0.340124 0.3902798 -0.1418585 0.6074542 0.4053072 -6.88791e-4 0.5702335 0.6237589 0.0799427 0.6257008 0.6316667 -0.08845186 0.7025379 0.9224203 -0.07728838 0.6357292 0.7698599 -0.2513609 0.699737 0.5865508 -0.2326989 0.5409902 0.7741388 -0.07094764 0.5044447 0.4948722 -0.1779074 0.789864</float_array>
+          <technique_common>
+            <accessor source="#Icosphere_000-mesh-positions-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Icosphere_000-mesh-normals">
+          <float_array id="Icosphere_000-mesh-normals-array" count="48">-0.9534725 0.1675743 0.2506175 -0.3161242 0.940769 -0.1225538 0.2576711 0.7481588 -0.6114444 0.3681213 0.297124 0.8810244 0.2148016 0.1656641 0.9625049 0.4907234 -0.645344 -0.5854243 0.1885846 0.4149869 0.8900684 -0.08356851 0.7585928 0.6461837 -0.8255918 0.2243885 0.5177335 -0.2145201 -0.9674872 0.1339761 0.428595 0.7856636 -0.4461381 -0.3555666 0.3741205 0.8565083 -0.4049623 -0.9128652 0.05179661 0.4522683 -0.6600353 -0.599839 0.2839341 -0.5123975 -0.8104507 -0.4643733 -0.8653177 -0.1886335</float_array>
+          <technique_common>
+            <accessor source="#Icosphere_000-mesh-normals-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Icosphere_000-mesh-vertices">
+          <input semantic="POSITION" source="#Icosphere_000-mesh-positions"/>
+        </vertices>
+        <polylist material="world_2_tree_leaves_001-material" count="16">
+          <input semantic="VERTEX" source="#Icosphere_000-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Icosphere_000-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 0 2 3 2 8 2 4 3 9 3 6 3 5 4 4 4 6 4 8 5 5 5 6 5 3 6 4 6 5 6 2 7 9 7 4 7 2 8 1 8 9 8 7 9 6 9 9 9 8 10 3 10 5 10 3 11 2 11 4 11 1 12 7 12 9 12 7 13 8 13 6 13 7 14 0 14 8 14 1 15 0 15 7 15</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="Cone_001-mesh" name="Cone.001">
+      <mesh>
+        <source id="Cone_001-mesh-positions">
+          <float_array id="Cone_001-mesh-positions-array" count="12">0 0.3253386 0 0.2817514 -0.1626692 0 0 0 3.325025 -0.2817515 -0.1626692 0</float_array>
+          <technique_common>
+            <accessor source="#Cone_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cone_001-mesh-normals">
+          <float_array id="Cone_001-mesh-normals-array" count="9">0.8649908 0.4994027 0.04886424 0 -0.9988055 0.04886424 -0.8649909 0.4994028 0.04886424</float_array>
+          <technique_common>
+            <accessor source="#Cone_001-mesh-normals-array" count="3" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cone_001-mesh-vertices">
+          <input semantic="POSITION" source="#Cone_001-mesh-positions"/>
+        </vertices>
+        <polylist material="world_2_tree_base_001-material" count="3">
+          <input semantic="VERTEX" source="#Cone_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cone_001-mesh-normals" offset="1"/>
+          <vcount>3 3 3 </vcount>
+          <p>0 0 2 0 1 0 1 1 2 1 3 1 3 2 2 2 0 2</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="world_2_brush_2_leaves" name="world_2_brush_2_leaves" type="NODE">
+        <matrix sid="transform">-0.2839684 -0.4682576 0.2055049 0 0.2631541 -0.4295411 -0.3279015 -1.49012e-7 0.2542174 -0.07841682 0.5689838 -2.04198e-8 0 0 0 1</matrix>
+        <instance_geometry url="#Icosphere_000-mesh" name="world_2_brush_2_leaves">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="world_2_tree_leaves_001-material" target="#world_2_tree_leaves_001-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="world_2_brush_2_base" name="world_2_brush_2_base" type="NODE">
+        <matrix sid="transform">0.06203989 0.09103743 0 0 -0.09103743 0.06203989 0 1.49012e-7 0 0 0.110167 2.04198e-8 0 0 0 1</matrix>
+        <instance_geometry url="#Cone_001-mesh" name="world_2_brush_2_base">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="world_2_tree_base_001-material" target="#world_2_tree_base_001-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

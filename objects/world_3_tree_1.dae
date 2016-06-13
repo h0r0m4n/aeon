@@ -5,14 +5,14 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
     </contributor>
-    <created>2016-06-06T03:37:30</created>
-    <modified>2016-06-06T03:37:30</modified>
+    <created>2016-06-13T19:27:20</created>
+    <modified>2016-06-13T19:27:20</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_images/>
   <library_effects>
-    <effect id="small_cherry_leaves-effect">
+    <effect id="world_3_tree_leaves_001-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -23,7 +23,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.5028865 0.004391442 0.04666509 1</color>
+              <color sid="diffuse">0.6678429 0.04240507 0.036878 1</color>
             </diffuse>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>
@@ -32,7 +32,7 @@
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="small_cherry_base-effect">
+    <effect id="world_3_tree_base_001-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -43,7 +43,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.7991028 0.5394797 0.2874408 1</color>
+              <color sid="diffuse">0.6444798 0.2722225 0.1017409 1</color>
             </diffuse>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>
@@ -54,11 +54,11 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="small_cherry_leaves-material" name="small_cherry_leaves">
-      <instance_effect url="#small_cherry_leaves-effect"/>
+    <material id="world_3_tree_leaves_001-material" name="world_3_tree_leaves_001">
+      <instance_effect url="#world_3_tree_leaves_001-effect"/>
     </material>
-    <material id="small_cherry_base-material" name="small_cherry_base">
-      <instance_effect url="#small_cherry_base-effect"/>
+    <material id="world_3_tree_base_001-material" name="world_3_tree_base_001">
+      <instance_effect url="#world_3_tree_base_001-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -75,9 +75,9 @@
           </technique_common>
         </source>
         <source id="Crown_Icosphere_001-mesh-normals">
-          <float_array id="Crown_Icosphere_001-mesh-normals-array" count="198">-0.4728941 -0.6516664 0.5930449 -0.602589 -0.494509 0.6263765 -0.6241005 0.7594894 0.1835066 -0.4646829 0.8230907 0.3264839 0.9522942 -0.2802025 -0.1209233 0.7358849 -0.6769537 0.01439231 -0.1527112 0.6103167 -0.7772984 0.4625744 0.7266153 -0.5079913 -0.317599 -0.7207092 -0.6162055 -0.2280434 -0.815526 -0.5318961 -0.4936134 -0.6133716 0.6165397 0.701271 -0.541719 0.4634216 -0.5113606 0.5068331 -0.6939961 -0.4772746 0.5723105 -0.6668356 -0.4772722 0.5723119 -0.6668361 -0.4772766 0.5723093 -0.6668352 0.6519331 0.7520322 0.09711378 0.7540041 0.6351904 0.167365 -0.8429839 -0.2078933 -0.4961438 -0.9822824 0.005975663 -0.1873122 -0.09731435 -0.167126 -0.9811212 -0.04859101 -0.1480591 -0.9877842 0.03912281 0.3655748 0.9299594 -0.6658936 0.2651013 0.6973572 0.8480759 0.08021843 0.5237675 0.9670588 -1.66772e-4 0.2545536 -0.6556904 -0.06576412 -0.7521603 -0.6556904 -0.06576406 -0.7521605 -0.6556902 -0.065764 -0.7521605 0.9480976 0.2420479 0.2062131 -0.7576674 0.3393821 0.5574585 -0.7576674 0.3393822 0.5574585 -0.7576676 0.3393822 0.5574583 0.9937898 -0.01893138 -0.1096524 -0.4886967 -0.6518118 0.5799283 0.118355 0.9199198 -0.3738177 -0.4822552 -0.6208828 0.6180086 -0.6016927 -0.4988735 0.6237717 -0.8730082 0.4138923 0.2579725 -0.7080342 0.5577797 0.4330928 0.9048357 -0.4249492 0.02628278 0.8287986 -0.4234901 -0.3657172 0.8362693 -0.1225489 -0.5344489 0.9895401 -0.1014427 -0.1025663 -0.47694 -0.6238502 -0.619144 -0.363211 -0.7665185 -0.5296483 0.8340076 -0.2727146 0.4796438 0.8261093 -0.4569952 0.3296952 -0.5131609 0.513076 -0.6880545 -0.4772713 0.5723124 -0.6668362 0.6368101 0.6979672 0.3275894 0.7334151 0.6088969 0.3022369 -0.9822829 0.005977332 -0.1873095 -0.9200941 -0.04615753 0.3889684 0.3448137 0.01928311 -0.9384731 -0.02643138 -0.1552186 -0.9875266 0.0555762 0.3695451 0.9275494 0.4310039 0.1867865 0.882806 0.7710229 0.1955189 -0.6060495 0.823505 0.03836417 -0.5660105 -0.6556905 -0.06576418 -0.7521603 0.8608757 0.3146497 0.399861 -0.7576673 0.3393821 0.5574588 0.8259359 0.2188444 -0.5195549 0.5681884 -0.8228738 -0.006378412 -0.1859791 0.9149861 -0.3580676</float_array>
+          <float_array id="Crown_Icosphere_001-mesh-normals-array" count="180">-0.4728941 -0.6516664 0.5930449 -0.602589 -0.494509 0.6263765 -0.6241005 0.7594894 0.1835066 -0.4646829 0.8230907 0.3264839 0.9522942 -0.2802025 -0.1209233 0.7358849 -0.6769537 0.01439231 -0.1527112 0.6103167 -0.7772984 0.4625744 0.7266153 -0.5079913 -0.317599 -0.7207092 -0.6162055 -0.2280434 -0.815526 -0.5318961 -0.4936134 -0.6133716 0.6165397 0.701271 -0.541719 0.4634216 -0.5113606 0.5068331 -0.6939961 -0.4772766 0.5723093 -0.6668352 0.6519331 0.7520322 0.09711378 0.7540041 0.6351904 0.167365 -0.8429839 -0.2078933 -0.4961438 -0.9822824 0.005975663 -0.1873122 -0.09731435 -0.167126 -0.9811212 -0.04859101 -0.1480591 -0.9877842 0.03912281 0.3655748 0.9299594 -0.6658936 0.2651013 0.6973572 0.8480759 0.08021843 0.5237675 0.9670588 -1.66772e-4 0.2545536 -0.6556902 -0.065764 -0.7521605 0.9480976 0.2420479 0.2062131 -0.7576676 0.3393822 0.5574583 0.9937898 -0.01893138 -0.1096524 -0.4886967 -0.6518118 0.5799283 0.118355 0.9199198 -0.3738177 -0.4822552 -0.6208828 0.6180086 -0.6016927 -0.4988735 0.6237717 -0.8730082 0.4138923 0.2579725 -0.7080342 0.5577797 0.4330928 0.9048357 -0.4249492 0.02628278 0.8287986 -0.4234901 -0.3657172 0.8362693 -0.1225489 -0.5344489 0.9895401 -0.1014427 -0.1025663 -0.47694 -0.6238502 -0.619144 -0.363211 -0.7665185 -0.5296483 0.8340076 -0.2727146 0.4796438 0.8261093 -0.4569952 0.3296952 -0.5131609 0.513076 -0.6880545 -0.4772713 0.5723124 -0.6668362 0.6368101 0.6979672 0.3275894 0.7334151 0.6088969 0.3022369 -0.9822829 0.005977332 -0.1873095 -0.9200941 -0.04615753 0.3889684 0.3448137 0.01928311 -0.9384731 -0.02643138 -0.1552186 -0.9875266 0.0555762 0.3695451 0.9275494 0.4310039 0.1867865 0.882806 0.7710229 0.1955189 -0.6060495 0.823505 0.03836417 -0.5660105 -0.6556905 -0.06576418 -0.7521603 0.8608757 0.3146497 0.399861 -0.7576673 0.3393821 0.5574588 0.8259359 0.2188444 -0.5195549 0.5681884 -0.8228738 -0.006378412 -0.1859791 0.9149861 -0.3580676</float_array>
           <technique_common>
-            <accessor source="#Crown_Icosphere_001-mesh-normals-array" count="66" stride="3">
+            <accessor source="#Crown_Icosphere_001-mesh-normals-array" count="60" stride="3">
               <param name="X" type="float"/>
               <param name="Y" type="float"/>
               <param name="Z" type="float"/>
@@ -87,11 +87,11 @@
         <vertices id="Crown_Icosphere_001-mesh-vertices">
           <input semantic="POSITION" source="#Crown_Icosphere_001-mesh-positions"/>
         </vertices>
-        <polylist material="small_cherry_leaves-material" count="60">
+        <polylist material="world_3_tree_leaves_001-material" count="60">
           <input semantic="VERTEX" source="#Crown_Icosphere_001-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Crown_Icosphere_001-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
-          <p>0 0 1 0 2 0 3 1 4 1 5 1 6 2 7 2 8 2 9 3 8 3 10 3 11 4 12 4 13 4 13 5 14 5 11 5 15 6 16 6 17 6 18 7 19 7 16 7 2 8 13 8 12 8 20 9 1 9 21 9 22 10 4 10 0 10 11 11 23 11 4 11 8 12 17 12 16 12 8 13 24 14 25 15 18 16 26 16 6 16 27 17 6 17 28 17 3 18 8 18 1 18 21 19 8 19 25 19 16 20 29 20 13 20 16 21 20 21 24 21 4 22 9 22 5 22 4 23 28 23 6 23 14 24 18 24 11 24 27 25 11 25 18 25 25 26 20 27 21 28 27 29 23 29 30 29 3 30 9 31 10 32 31 33 29 33 19 33 2 34 22 34 0 34 26 35 17 35 7 35 0 36 4 36 1 36 3 37 1 37 4 37 6 38 26 38 7 38 9 39 6 39 8 39 11 40 22 40 12 40 13 41 29 41 14 41 15 42 18 42 16 42 18 43 31 43 19 43 2 44 1 44 13 44 20 45 13 45 1 45 22 46 11 46 4 46 11 47 30 47 23 47 8 48 7 48 17 48 8 13 16 49 24 14 18 50 15 50 26 50 27 51 18 51 6 51 3 52 10 52 8 52 21 53 1 53 8 53 16 54 19 54 29 54 16 55 13 55 20 55 4 56 6 56 9 56 4 57 23 57 28 57 14 58 31 58 18 58 27 59 30 59 11 59 25 26 24 60 20 27 27 61 28 61 23 61 3 30 5 62 9 31 31 63 14 63 29 63 2 64 12 64 22 64 26 65 15 65 17 65</p>
+          <p>0 0 1 0 2 0 3 1 4 1 5 1 6 2 7 2 8 2 9 3 8 3 10 3 11 4 12 4 13 4 13 5 14 5 11 5 15 6 16 6 17 6 18 7 19 7 16 7 2 8 13 8 12 8 20 9 1 9 21 9 22 10 4 10 0 10 11 11 23 11 4 11 8 12 17 12 16 12 8 13 24 13 25 13 18 14 26 14 6 14 27 15 6 15 28 15 3 16 8 16 1 16 21 17 8 17 25 17 16 18 29 18 13 18 16 19 20 19 24 19 4 20 9 20 5 20 4 21 28 21 6 21 14 22 18 22 11 22 27 23 11 23 18 23 25 24 20 24 21 24 27 25 23 25 30 25 3 26 9 26 10 26 31 27 29 27 19 27 2 28 22 28 0 28 26 29 17 29 7 29 0 30 4 30 1 30 3 31 1 31 4 31 6 32 26 32 7 32 9 33 6 33 8 33 11 34 22 34 12 34 13 35 29 35 14 35 15 36 18 36 16 36 18 37 31 37 19 37 2 38 1 38 13 38 20 39 13 39 1 39 22 40 11 40 4 40 11 41 30 41 23 41 8 42 7 42 17 42 8 43 16 43 24 43 18 44 15 44 26 44 27 45 18 45 6 45 3 46 10 46 8 46 21 47 1 47 8 47 16 48 19 48 29 48 16 49 13 49 20 49 4 50 6 50 9 50 4 51 23 51 28 51 14 52 31 52 18 52 27 53 30 53 11 53 25 54 24 54 20 54 27 55 28 55 23 55 3 56 5 56 9 56 31 57 14 57 29 57 2 58 12 58 22 58 26 59 15 59 17 59</p>
         </polylist>
       </mesh>
     </geometry>
@@ -120,7 +120,7 @@
         <vertices id="Bole_Plane_000-mesh-vertices">
           <input semantic="POSITION" source="#Bole_Plane_000-mesh-positions"/>
         </vertices>
-        <polylist material="small_cherry_base-material" count="38">
+        <polylist material="world_3_tree_base_001-material" count="38">
           <input semantic="VERTEX" source="#Bole_Plane_000-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Bole_Plane_000-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -132,22 +132,22 @@
   <library_controllers/>
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
-      <node id="small_cherry_leaves" name="small_cherry_leaves" type="NODE">
+      <node id="world_3_tree_1_leaves" name="world_3_tree_1_leaves" type="NODE">
         <matrix sid="transform">0.7708004 0 0 0 0 -1.25579e-7 -0.7708004 0 0 0.7708004 -1.25579e-7 0 0 0 0 1</matrix>
-        <instance_geometry url="#Crown_Icosphere_001-mesh" name="small_cherry_leaves">
+        <instance_geometry url="#Crown_Icosphere_001-mesh" name="world_3_tree_1_leaves">
           <bind_material>
             <technique_common>
-              <instance_material symbol="small_cherry_leaves-material" target="#small_cherry_leaves-material"/>
+              <instance_material symbol="world_3_tree_leaves_001-material" target="#world_3_tree_leaves_001-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
       </node>
-      <node id="small_cherry_base" name="small_cherry_base" type="NODE">
+      <node id="world_3_tree_1_base" name="world_3_tree_1_base" type="NODE">
         <matrix sid="transform">0.3299592 0 0 0 0 -1.14757e-7 -0.3299592 0 0 0.7043724 -5.37572e-8 0 0 0 0 1</matrix>
-        <instance_geometry url="#Bole_Plane_000-mesh" name="small_cherry_base">
+        <instance_geometry url="#Bole_Plane_000-mesh" name="world_3_tree_1_base">
           <bind_material>
             <technique_common>
-              <instance_material symbol="small_cherry_base-material" target="#small_cherry_base-material"/>
+              <instance_material symbol="world_3_tree_base_001-material" target="#world_3_tree_base_001-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>

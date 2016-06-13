@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
+    </contributor>
+    <created>2016-06-13T19:15:45</created>
+    <modified>2016-06-13T19:15:45</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="world_1_brush_2_leaves2-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.001821161 0.1221388 0.06124605 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="world_1_tree_base_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.3231432 0.09530747 0.03820438 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="world_1_brush_2_leaves2-material" name="world_1_brush_2_leaves2">
+      <instance_effect url="#world_1_brush_2_leaves2-effect"/>
+    </material>
+    <material id="world_1_tree_base_001-material" name="world_1_tree_base_001">
+      <instance_effect url="#world_1_tree_base_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cylinder_002-mesh" name="Cylinder.002">
+      <mesh>
+        <source id="Cylinder_002-mesh-positions">
+          <float_array id="Cylinder_002-mesh-positions-array" count="27">-26.37587 17.88215 22.22795 -19.86312 62.2866 19.81845 -26.37587 17.88198 -25.13374 -15.93857 62.28647 -14.28802 18.02859 17.88217 26.82089 12.67641 62.28658 14.97582 24.49944 17.12328 -23.55003 18.02859 62.28644 -22.17667 -1.974565 107.0147 -0.007535874</float_array>
+          <technique_common>
+            <accessor source="#Cylinder_002-mesh-positions-array" count="9" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cylinder_002-mesh-normals">
+          <float_array id="Cylinder_002-mesh-normals-array" count="42">-0.97347 0.2288147 -7.91056e-7 0.03161531 0.03490483 -0.9988905 0.9807301 0.1512101 0.1237103 -0.1026409 0.0689004 0.9923294 -0.01491147 -0.9998889 3.6472e-6 0.9276817 0.348636 0.1336402 -0.9839166 0.1381664 -0.1132172 -0.2172073 0.2794897 -0.9352576 0.9805594 0.1361961 0.1412585 0.1416915 0.2710499 0.9520795 -0.001537322 -0.9998884 0.01486682 0.1376224 0.3548545 0.9247369 -0.9386479 0.3275274 -0.1080089 -0.2113549 0.3565412 -0.9100592</float_array>
+          <technique_common>
+            <accessor source="#Cylinder_002-mesh-normals-array" count="14" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cylinder_002-mesh-vertices">
+          <input semantic="POSITION" source="#Cylinder_002-mesh-positions"/>
+        </vertices>
+        <polylist material="world_1_brush_2_leaves2-material" count="14">
+          <input semantic="VERTEX" source="#Cylinder_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cylinder_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>3 0 2 0 0 0 7 1 6 1 2 1 5 2 4 2 6 2 1 3 0 3 4 3 0 4 2 4 6 4 5 5 7 5 8 5 1 6 3 6 0 6 3 7 7 7 2 7 7 8 5 8 6 8 5 9 1 9 4 9 4 10 0 10 6 10 1 11 5 11 8 11 8 12 3 12 1 12 8 13 7 13 3 13</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="Cylinder_001-mesh" name="Cylinder.001">
+      <mesh>
+        <source id="Cylinder_001-mesh-positions">
+          <float_array id="Cylinder_001-mesh-positions-array" count="36">-3.39746e-6 -2.19345e-5 -6.073328 -3.39746e-6 19.0286 -6.073398 5.259593 -1.09673e-5 -3.036699 5.259593 19.02861 -3.036768 5.259593 1.09673e-5 3.036559 5.259593 19.02864 3.03649 -3.8743e-6 2.14577e-5 6.073188 -3.8743e-6 19.02865 6.073119 -5.259599 1.09673e-5 3.036558 -5.259599 19.02864 3.036489 -5.259599 -1.09673e-5 -3.036699 -5.259599 19.02861 -3.036768</float_array>
+          <technique_common>
+            <accessor source="#Cylinder_001-mesh-positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cylinder_001-mesh-normals">
+          <float_array id="Cylinder_001-mesh-normals-array" count="36">0.4999998 -3.14939e-6 -0.8660255 1 0 0 0.5 3.11934e-6 0.8660255 -0.5000001 3.12759e-6 0.8660253 -1 0 0 -0.4999998 -3.13584e-6 -0.8660255 0.5000001 -3.1441e-6 -0.8660255 1 0 0 0.4999998 3.15235e-6 0.8660255 -0.5000001 3.13594e-6 0.8660255 -1 0 0 -0.5000002 -3.14409e-6 -0.8660254</float_array>
+          <technique_common>
+            <accessor source="#Cylinder_001-mesh-normals-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cylinder_001-mesh-vertices">
+          <input semantic="POSITION" source="#Cylinder_001-mesh-positions"/>
+        </vertices>
+        <polylist material="world_1_tree_base_001-material" count="12">
+          <input semantic="VERTEX" source="#Cylinder_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cylinder_001-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 3 0 2 0 3 1 4 1 2 1 4 2 7 2 6 2 7 3 8 3 6 3 8 4 11 4 10 4 11 5 0 5 10 5 0 6 1 6 3 6 3 7 5 7 4 7 4 8 5 8 7 8 7 9 9 9 8 9 8 10 9 10 11 10 11 11 1 11 0 11</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="world_1_brush_2_leaves" name="world_1_brush_2_leaves" type="NODE">
+        <matrix sid="transform">0.01 0 0 0 0 -3.61999e-8 -0.01 2.38419e-7 0 0.01 -3.61999e-8 -9.31323e-9 0 0 0 1</matrix>
+        <instance_geometry url="#Cylinder_002-mesh" name="world_1_brush_2_leaves">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="world_1_brush_2_leaves2-material" target="#world_1_brush_2_leaves2-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="world_1_brush_2_base" name="world_1_brush_2_base" type="NODE">
+        <matrix sid="transform">0.01 0 0 0 0 -3.61999e-8 -0.01 -2.38419e-7 0 0.01 -3.61999e-8 9.31323e-9 0 0 0 1</matrix>
+        <instance_geometry url="#Cylinder_001-mesh" name="world_1_brush_2_base">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="world_1_tree_base_001-material" target="#world_1_tree_base_001-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

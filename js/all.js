@@ -93929,9 +93929,9 @@
 	      };
 
 	      if (Range.fire()) {
-	        console.log('Fire!');
+	        console.log('Test1!');
 	      } else {
-	        console.log('Culo!');
+	        console.log('Test2!');
 	      };
 
 	      if (Range.albero()) {

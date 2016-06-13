@@ -5,14 +5,14 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
     </contributor>
-    <created>2016-06-06T03:40:53</created>
-    <modified>2016-06-06T03:40:53</modified>
+    <created>2016-06-13T19:40:00</created>
+    <modified>2016-06-13T19:40:00</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_images/>
   <library_effects>
-    <effect id="big_orange_leaves-effect">
+    <effect id="Material-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -32,7 +32,7 @@
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="big_orange_base-effect">
+    <effect id="Material_001-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -54,11 +54,11 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="big_orange_leaves-material" name="big_orange_leaves">
-      <instance_effect url="#big_orange_leaves-effect"/>
+    <material id="Material-material" name="Material">
+      <instance_effect url="#Material-effect"/>
     </material>
-    <material id="big_orange_base-material" name="big_orange_base">
-      <instance_effect url="#big_orange_base-effect"/>
+    <material id="Material_001-material" name="Material_001">
+      <instance_effect url="#Material_001-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -96,7 +96,7 @@
         <vertices id="Tree_2_Leaves9-mesh-vertices">
           <input semantic="POSITION" source="#Tree_2_Leaves9-mesh-positions"/>
         </vertices>
-        <polylist material="big_orange_leaves-material" count="280">
+        <polylist material="Material-material" count="280">
           <input semantic="VERTEX" source="#Tree_2_Leaves9-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Tree_2_Leaves9-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#Tree_2_Leaves9-mesh-map-0" offset="2" set="0"/>
@@ -139,7 +139,7 @@
         <vertices id="Tree_2_Leaves3-mesh-vertices">
           <input semantic="POSITION" source="#Tree_2_Leaves3-mesh-positions"/>
         </vertices>
-        <polylist material="big_orange_base-material" count="342">
+        <polylist material="Material_001-material" count="342">
           <input semantic="VERTEX" source="#Tree_2_Leaves3-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Tree_2_Leaves3-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#Tree_2_Leaves3-mesh-map-0" offset="2" set="0"/>
@@ -152,22 +152,22 @@
   <library_controllers/>
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
-      <node id="big_orange_leaves" name="big_orange_leaves" type="NODE">
+      <node id="world_4_tree_3_leaves" name="world_4_tree_3_leaves" type="NODE">
         <matrix sid="transform">-3.88014e-10 -1.4462e-9 -0.00887672 -2.38419e-7 -0.00887672 0 3.88014e-10 -3.72529e-9 0 0.00887672 -1.4462e-9 -2.38419e-7 0 0 0 1</matrix>
-        <instance_geometry url="#Tree_2_Leaves9-mesh" name="big_orange_leaves">
+        <instance_geometry url="#Tree_2_Leaves9-mesh" name="world_4_tree_3_leaves">
           <bind_material>
             <technique_common>
-              <instance_material symbol="big_orange_leaves-material" target="#big_orange_leaves-material"/>
+              <instance_material symbol="Material-material" target="#Material-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
       </node>
-      <node id="big_orange_base" name="big_orange_base" type="NODE">
+      <node id="world_4_tree_3_base" name="world_4_tree_3_base" type="NODE">
         <matrix sid="transform">-3.88014e-10 -1.4462e-9 -0.00887672 2.38419e-7 -0.00887672 0 3.88014e-10 3.72529e-9 0 0.00887672 -1.4462e-9 2.38419e-7 0 0 0 1</matrix>
-        <instance_geometry url="#Tree_2_Leaves3-mesh" name="big_orange_base">
+        <instance_geometry url="#Tree_2_Leaves3-mesh" name="world_4_tree_3_base">
           <bind_material>
             <technique_common>
-              <instance_material symbol="big_orange_base-material" target="#big_orange_base-material"/>
+              <instance_material symbol="Material_001-material" target="#Material_001-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
