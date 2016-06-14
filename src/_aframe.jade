@@ -8,71 +8,49 @@ a-scene#scene(stats)
   //- ASSETS ---------------------------------------------------------------
 
   include _assets.jade
-  include _birds.jade
-  include _planet.jade
-  
-  //- LEVEL ----------------------------------------------------------------
-  
-  a-entity(collada-model="#world_1_fire", scale="1 1 1", position="-1 0 1")
-  a-entity(collada-model="#world_1_tree_1", scale="1 1 1", position="2 0 0")
-  a-entity(collada-model="#world_1_tree_2", scale="1 1 1", position="4 0 -2")
-  a-entity(collada-model="#world_1_tree_3", scale="1 1 1", position="8 0 -4")
-  a-entity(collada-model="#world_1_brush_1", scale="1 1 1", position="3 0 0")
-  a-entity(collada-model="#world_1_brush_2", scale="1 1 1", position="6 0 -2")
-  
-  a-entity(collada-model="#world_2_tree_1", scale="1 1 1", position="-2 0 0")
-  a-entity(collada-model="#world_2_tree_2", scale="1 1 1", position="-4 0 -2")
-  a-entity(collada-model="#world_2_tree_3", scale="1 1 1", position="-8 0 -4")
-  a-entity(collada-model="#world_2_brush_1", scale="1 1 1", position="-3 0 0")
-  a-entity(collada-model="#world_2_brush_2", scale="1 1 1", position="-6 0 -2")
-  
-  a-entity(collada-model="#world_3_tree_1", scale="1 1 1", position="10 0 -2")
-  a-entity(collada-model="#world_3_tree_2", scale="1 1 1", position="12 0 -4")
-  a-entity(collada-model="#world_3_tree_3", scale="1 1 1", position="16 0 -6")
-  a-entity(collada-model="#world_3_brush_1", scale="1 1 1", position="11 0 -2")
-  a-entity(collada-model="#world_3_brush_2", scale="1 1 1", position="14 0 -4")
-  
-  a-entity(collada-model="#world_4_tree_1", scale="1 1 1", position="-10 0 -2")
-  a-entity(collada-model="#world_4_tree_2", scale="1 1 1", position="-12 0 -4")
-  a-entity(collada-model="#world_4_tree_3", scale="1 1 1", position="-16 0 -6")
-  a-entity(collada-model="#world_4_brush_1", scale="1 1 1", position="-11 0 -2")
-  a-entity(collada-model="#world_4_brush_2", scale="1 1 1", position="-14 0 -4")
+  //- include _birds.jade
+  //- include _planet.jade
+  //- include _test.jade
 
-  //- MONTAINS
+  //- WORLD 1 ------------------------------------------------------------------  
   
-  //- due davanti - funzionano entrambe
-  a-entity(collada-model="#world_1_montain_1", scale="1 1 1", position="0 0 -50")
-  a-entity(collada-model="#world_1_montain_2", scale="1 1 1", position="10 0 -50")
-  
-  //- due a left - funzionano entrambe
-  a-entity(collada-model="#world_2_montain_1", scale="1 1 1", position="-80 0 -150")
-  a-entity(collada-model="#world_2_montain_2", scale="1 1 1", position="-40 0 -80")
-  
-  //- due di dietro - funzionano entrambe
-  a-entity(collada-model="#world_3_montain_1", scale="1 1 1", position="30 0 20")
-  a-entity(collada-model="#world_3_montain_2", scale="1 1 1", position="0 0 120")
-  
-  //- due a rigth - funzionano entrambe
-  a-entity(collada-model="#world_4_montain_1", scale="1 1 1", position="80 0 -60")
-  a-entity(collada-model="#world_4_montain_2", scale="1 1 1", position="60 0 -90")
-  
-  a-entity(collada-model="#island", scale="1 1 1", position="0 0 0", rotation="0 0 0")
+  a-entity.world_1_module(position="0 0 0", rotation="0 0 0")
+    include _world_1_module.jade
 
-  //- ISLAND: perferct range of scale {12>18-24}
-  //- a-entity(collada-model="url(objects/island_v5.dae)", scale="18 18 18", position="0 0 0")
+  //- WORLD 2 ------------------------------------------------------------------  
+
+  a-entity.world_2_module(position="0 0 0", rotation="0 0 0")
+    include _world_2_module.jade
     
-  //- SEA
-  a-entity(geometry="primitive: circle; radius: 512", material="side: double; color: #4296BA; transparent: true; opacity: 0.5", position="0 -0.1 0", rotation="-90 0 0")
+  //- WORLD 3 ------------------------------------------------------------------  
 
-  //- WORLD ----------------------------------------------------------------
+  //- a-entity.world_3_module(position="30 0 -30", rotation="0 0 0")
+  //-   include _world_3_module.jade
+
+  //- WORLD 4 ------------------------------------------------------------------  
+
+  //- a-entity.world_4_module(position="30 0 30", rotation="0 0 0")
+  //-   include _world_4_module.jade
+
+  //- ISLAND -------------------------------------------------------------------
   
-  //- Lights -----------------------------
+  // perferct range of scale {12>18-24}
+  //- a-entity(collada-model="#island", scale="1 1 1", position="0 0 0", rotation="0 0 0")
+  
+  //- world_1: #274D29 | world_2: #4E4720 | world_3: #4F3F25 | world_4: #235244
+  a-entity.ground(geometry="primitive: circle; radius: 64", material="color: #CCC;", position="0 0 0", rotation="-90 0 0")
+
+  //- SEA ----------------------------------------------------------------------
+  
+  a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #4296BA; transparent: true; opacity: 0.5", position="0 -0.1 0", rotation="-90 0 0")
+  
+  //- Lights -------------------------------------------------------------------
 
   //- luminosità dell’ambiente
-  a-light(light="type: ambient; color: #E7E7E7;")
+  a-light(light="type: ambient; color: #FFF;")
   //- simile al sole
-  a-light(light="type: directional; color: #E7E7E7; intensity: 0.5", position="-1 1 0")
-  
+  a-light(light="type: directional; color: #FFF; intensity: 1", position="-1 1 0")
+
   //- risolvere il problema delle luce
   
   //- offre di realizzare il gradiente tra i due colori
@@ -80,11 +58,14 @@ a-scene#scene(stats)
   //- a-entity(light="type: point; intensity: 0.75; distance: 50; decay: 2", position="0 10 10")
   //- a-entity(light="type: spot; angle: 45")
 
-  //- Sky --------------------------------
+  //- Sky ----------------------------------------------------------------------
   
-  a-sky(color="#{sky1}", radius="1000")
+  //- world_1: #A0FFFF | world_2: #D6FFC5 | world_3: #D8ECAD | world_4: #DAE2B1
+  a-sky.sky(color="#CCC", radius="1000")
   
-  //- PLAYER ---------------------------------------------------------------
+  //- PLAYER -------------------------------------------------------------------
   
   //- https://github.com/donmccurdy/aframe-extras/tree/master/src/controls#input-devices
-  a-entity#player(camera, universal-controls, position="0 1.8 4", rotation="0 0 0")
+  //- position: -32 1.5 96
+  //- sistemare world 3 utilizzare coordinate 64 1.5 -64
+  a-entity#player(camera, universal-controls, position="0 75 0", rotation="-90 0 0")

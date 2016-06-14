@@ -8,6 +8,13 @@ A prequel WebVR environment to videogame Aeon
 - `gulp` to run workflow automatization
 - `gulp deploy` to to publish contents to [Github pages](https://pages.github.com/)
 
+## Coordinates
+
+1. world_1: limit from `-128,0,0` to `0,0,128`
+2. world_2: limit from `-128,0,0` to `0,0,-128`
+3. world_3: limit from `0,0,-128` to `128,0,0`
+4. world_4: limit from `128,0,0` to `0,0,128`
+
 ## TODO
 
 - particles https://github.com/IdeaSpaceVR/aframe-particle-system-component
