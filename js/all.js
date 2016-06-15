@@ -93833,6 +93833,10 @@
 
 	document.addEventListener('DOMContentLoaded', function() {
 
+	  // d3.select('a-sky')
+	  //   .transition().duration(8000)
+	  //   .attr('color', '#A0FFFF');
+
 	  var playerCamera = document.getElementById('player');
 
 	  // d3.select('html')
@@ -93873,6 +93877,54 @@
 	        z: {
 	          rangeA: -5,
 	          rangeB: -7,
+	        }
+	      };
+
+	      this.world1 = {
+	        x: {
+	          rangeA: -128,
+	          rangeB: 0
+	        },
+	        y: 0,
+	        z: {
+	          rangeA: 0,
+	          rangeB: 128
+	        }
+	      };
+
+	      this.world2 = {
+	        x: {
+	          rangeA: -128,
+	          rangeB: 0
+	        },
+	        y: 0,
+	        z: {
+	          rangeA: -128,
+	          rangeB: 0
+	        }
+	      };
+
+	      this.world3 = {
+	        x: {
+	          rangeA: 0,
+	          rangeB: 128
+	        },
+	        y: 0,
+	        z: {
+	          rangeA: -128,
+	          rangeB: 0
+	        }
+	      };
+
+	      this.world4 = {
+	        x: {
+	          rangeA: 0,
+	          rangeB: 128
+	        },
+	        y: 0,
+	        z: {
+	          rangeA: -128,
+	          rangeB: 0
 	        }
 	      };
 
@@ -93920,6 +93972,30 @@
 	        albero: function() {
 	          return (positionResult.z > instanceCollision.albero.z.rangeB && positionResult.z < instanceCollision.albero.z.rangeA);
 	        },
+	        world1: function() {
+	          return (
+	            (positionResult.z > instanceCollision.world1.z.rangeA && positionResult.z < instanceCollision.world1.z.rangeB) &&
+	            (positionResult.x > instanceCollision.world1.x.rangeA && positionResult.x < instanceCollision.world1.x.rangeB)
+	          );
+	        },
+	        world2: function() {
+	          return (
+	            (positionResult.z > instanceCollision.world2.z.rangeA && positionResult.z < instanceCollision.world2.z.rangeB) &&
+	            (positionResult.x > instanceCollision.world2.x.rangeA && positionResult.x < instanceCollision.world2.x.rangeB)
+	          );
+	        },
+	        world3: function() {
+	          return (
+	            (positionResult.z > instanceCollision.world3.z.rangeA && positionResult.z < instanceCollision.world3.z.rangeB) &&
+	            (positionResult.x > instanceCollision.world3.x.rangeA && positionResult.x < instanceCollision.world3.x.rangeB)
+	          );
+	        },
+	        world4: function() {
+	          return (
+	            (positionResult.z < instanceCollision.world3.z.rangeA && positionResult.z > instanceCollision.world3.z.rangeB) &&
+	            (positionResult.x < instanceCollision.world3.x.rangeA && positionResult.x > instanceCollision.world3.x.rangeB)
+	          );
+	        },
 	        fire: function() {
 	          return (
 	            (positionResult.z > instanceCollision.fire.z.rangeA && positionResult.z < instanceCollision.fire.z.rangeB) &&
@@ -93928,25 +94004,77 @@
 	        }
 	      };
 
-	      if (Range.fire()) {
-	        console.log('Test1!');
+	      if (Range.world1()) {
+
+	        d3.select('.sky')
+	          .attr('color', '#A0FFFF');
+	        d3.select('.ground')
+	          .attr('material', 'color: #274D29');
+
+	        // console.log('World 1');
+
 	      } else {
-	        console.log('Test2!');
+	        // console.log('No World 1');
+	      };
+
+	      if (Range.world2()) {
+
+	        d3.select('.sky')
+	          .attr('color', '#D6FFC5');
+	        d3.select('.ground')
+	          .attr('material', 'color: #4E4720');
+
+	        // console.log('World 2');
+
+	      } else {
+	        // console.log('No World 2');
+	      };
+
+	      if (Range.world3()) {
+
+	        // console.log('World 3');
+
+	        d3.select('.sky')
+	          .attr('color', '#D8ECAD');
+	        d3.select('.ground')
+	          .attr('material', 'color: #4F3F25');
+
+	      } else {
+	        // console.log('No World 2');
+	      };
+
+	      if (Range.world4()) {
+
+	        d3.select('.sky')
+	          .attr('color', '#DAE2B1');
+	        d3.select('.ground')
+	          .attr('material', 'color: #235244');
+
+	        // console.log('World 4');
+
+	      } else {
+	        // console.log('No World 2');
+	      };
+
+	      if (Range.fire()) {
+	        // console.log('Fire!');
+	      } else {
+	        // console.log('Test2!');
 	      };
 
 	      if (Range.albero()) {
 	        // tree collision
 
-	        d3.select('a-sky')
-	          .transition().duration(1000)
-	          .attr('color', 'red');
+	        // d3.select('a-sky')
+	        //   .transition().duration(1000)
+	        //   .attr('color', 'red');
 
 	        // var positionP = playerCamera.getAttribute('position');
 	        //   positionP.z = -5;
 	        //   positionP.x = 15;
 	        //
 	        // playerCamera.setAttribute('position', positionP.x + ' ' + positionP.y + ' ' + positionP.z);
-	        console.log('@######', positionP);
+	        // console.log('@######', positionP);
 	      } else {
 	        // d3.select('a-sky')
 	        //   .attr('color', 'green');
