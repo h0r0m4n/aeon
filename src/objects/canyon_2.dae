@@ -5,17 +5,17 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
     </contributor>
-    <created>2016-06-13T18:31:47</created>
-    <modified>2016-06-13T18:31:47</modified>
+    <created>2016-06-15T03:16:27</created>
+    <modified>2016-06-15T03:16:27</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_images/>
   <library_effects>
-    <effect id="ground-effect">
+    <effect id="rock-effect">
       <profile_COMMON>
         <technique sid="common">
-          <lambert>
+          <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
@@ -23,19 +23,25 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.6172067 0.3613068 0.1144354 1</color>
+              <color sid="diffuse">0.2581829 0.2581829 0.2581829 1</color>
             </diffuse>
+            <specular>
+              <color sid="specular">0.2 0.2 0.2 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>
             </index_of_refraction>
-          </lambert>
+          </phong>
         </technique>
       </profile_COMMON>
     </effect>
   </library_effects>
   <library_materials>
-    <material id="ground-material" name="ground">
-      <instance_effect url="#ground-effect"/>
+    <material id="rock-material" name="rock">
+      <instance_effect url="#rock-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -64,7 +70,7 @@
         <vertices id="Cube_006-mesh-vertices">
           <input semantic="POSITION" source="#Cube_006-mesh-positions"/>
         </vertices>
-        <polylist material="ground-material" count="322">
+        <polylist material="rock-material" count="322">
           <input semantic="VERTEX" source="#Cube_006-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Cube_006-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -77,11 +83,11 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="canyon_2" name="canyon_2" type="NODE">
-        <matrix sid="transform">0.9749324 0 0.2225012 0 0 1 0 0 -0.2225012 0 0.9749324 0 0 0 0 1</matrix>
+        <matrix sid="transform">-0.4603128 -0.3215505 -0.1050536 32.24027 0.31349 -0.4721485 0.07154536 -11.7061 -0.1271023 0 0.5569236 0 0 0 0 1</matrix>
         <instance_geometry url="#Cube_006-mesh" name="canyon_2">
           <bind_material>
             <technique_common>
-              <instance_material symbol="ground-material" target="#ground-material"/>
+              <instance_material symbol="rock-material" target="#rock-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>

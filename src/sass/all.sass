@@ -14,6 +14,10 @@ body
   text-align: center
   width: 100%
 
+  img
+    max-width: 260px
+    height: auto
+
 @keyframes fade
   from
     opacity: 0
@@ -22,10 +26,11 @@ body
     opacity: 1
 
 .loaded
-  font-size: 24px
+  font-size: 64px
   text-transform: uppercase
   letter-spacing: 2px
   font-weight: 700
+  margin: 0
 
   &-1
     animation: fade 750ms infinite

@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       this.world3 = {
         x: {
-          rangeA: 128,
-          rangeB: 0
+          rangeA: 0,
+          rangeB: 128
         },
         y: 0,
         z: {
-          rangeA: 128,
+          rangeA: -128,
           rangeB: 0
         }
       };
@@ -220,9 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (Range.world3()) {
 
-        // TODO manca solo world 3!
-
-        console.log('World 3');
+        // console.log('World 3');
 
         d3.select('.sky')
           .attr('color', '#D8ECAD');
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
         d3.select('.ground')
           .attr('material', 'color: #235244');
 
-        console.log('World 4');
+        // console.log('World 4');
 
       } else {
         // console.log('No World 2');

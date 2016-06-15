@@ -1,5 +1,5 @@
 //- a-scene(stats, fog="type: exponential; color: #{fog1}; density: 0.05;", vr-mode-ui="enabled: false")
-a-scene#scene(stats)
+a-scene#scene
   
   //- INFOS --------------------------------------------------------------------
   
@@ -9,13 +9,14 @@ a-scene#scene(stats)
 
   include _assets.jade
   //- include _birds.jade
-  //- include _planet.jade
   //- include _test.jade
 
   //- WORLD 1 ------------------------------------------------------------------  
   
   a-entity.world_1_module(position="0 0 0", rotation="0 0 0")
     include _world_1_module.jade
+
+  a-entity(collada-model="#world_1_fire", scale="1 1 1", position="-32 0 40", rotation="0 0 0")
 
   //- WORLD 2 ------------------------------------------------------------------  
 
@@ -24,13 +25,23 @@ a-scene#scene(stats)
     
   //- WORLD 3 ------------------------------------------------------------------  
 
-  //- a-entity.world_3_module(position="30 0 -30", rotation="0 0 0")
-  //-   include _world_3_module.jade
+  a-entity.world_3_module(position="0 0 0", rotation="0 0 0")
+    include _world_3_module.jade
+
+  a-entity(collada-model="#canyon_1", scale="1 1 1", position="51 0 -50", rotation="0 -90 0")
+  a-entity(collada-model="#canyon_2", scale="1 1 1", position="51 0 -38", rotation="0 -93 0")
 
   //- WORLD 4 ------------------------------------------------------------------  
 
-  //- a-entity.world_4_module(position="30 0 30", rotation="0 0 0")
-  //-   include _world_4_module.jade
+  a-entity.world_4_module(position="0 0 0", rotation="0 0 0")
+    include _world_4_module.jade
+    
+  a-entity.planet(position="100 0 100")
+    include _planet.jade
+
+  //- MOUNTAIN -----------------------------------------------------------------
+
+  a-entity(collada-model="#mountain", scale="1 1 1", position="-0.5 0 0", rotation="0 -177 0")
 
   //- ISLAND -------------------------------------------------------------------
   
@@ -66,6 +77,6 @@ a-scene#scene(stats)
   //- PLAYER -------------------------------------------------------------------
   
   //- https://github.com/donmccurdy/aframe-extras/tree/master/src/controls#input-devices
-  //- position: -32 1.5 96
-  //- sistemare world 3 utilizzare coordinate 64 1.5 -64
-  a-entity#player(camera, universal-controls, position="0 75 0", rotation="-90 0 0")
+  
+  //- DEBUG: a-entity#player(camera, universal-controls, position="0 75 0", rotation="-90 0 0")
+  a-entity#player(camera, universal-controls, position="-31 1.5 44")
