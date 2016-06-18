@@ -92822,7 +92822,7 @@
 	    enabled:           { default: true },
 
 	    // Debugging
-	    debug:             { default: false }
+	    debug:             { default: true }
 	  },
 
 	  /*******************************************************************
@@ -92924,23 +92924,23 @@
 	   */
 
 	  updateButtonState: function () {
-	    var gamepad = this.getGamepad();
-	    if (this.data.enabled && gamepad) {
-
-	      // Fire DOM events for button state changes.
-	      for (var i = 0; i < gamepad.buttons.length; i++) {
-	        if (gamepad.buttons[i].pressed && !this.buttons[i]) {
-	          this.emit(new GamepadButtonEvent('gamepadbuttondown', i, gamepad.buttons[i]));
-	        } else if (!gamepad.buttons[i].pressed && this.buttons[i]) {
-	          this.emit(new GamepadButtonEvent('gamepadbuttonup', i, gamepad.buttons[i]));
-	        }
-	        this.buttons[i] = gamepad.buttons[i].pressed;
-	      }
-
-	    } else if (Object.keys(this.buttons)) {
-	      // Reset state if controls are disabled or controller is lost.
-	      this.buttons = {};
-	    }
+	    // var gamepad = this.getGamepad();
+	    // if (this.data.enabled && gamepad) {
+			//
+	    //   // Fire DOM events for button state changes.
+	    //   for (var i = 0; i < gamepad.buttons.length; i++) {
+	    //     if (gamepad.buttons[i].pressed && !this.buttons[i]) {
+	    //       this.emit(new GamepadButtonEvent('gamepadbuttondown', i, gamepad.buttons[i]));
+	    //     } else if (!gamepad.buttons[i].pressed && this.buttons[i]) {
+	    //       this.emit(new GamepadButtonEvent('gamepadbuttonup', i, gamepad.buttons[i]));
+	    //     }
+	    //     this.buttons[i] = gamepad.buttons[i].pressed;
+	    //   }
+			//
+	    // } else if (Object.keys(this.buttons)) {
+	    //   // Reset state if controls are disabled or controller is lost.
+	    //   this.buttons = {};
+	    // }
 	  },
 
 	  emit: function (event) {
@@ -93810,53 +93810,42 @@
 /* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(d3) {// #############################################################################
-	// #############################################################################
-	// #############################################################################
-
-	// Trigger livello
-
-	// 1. Prendendere i dati della position dal selettore camera
-	// 2. Utilizzando qualcosa come addEventListener per i cambiamenti della position (con un timeout)
-	// 3. Idee per condizioni in base ai dati della position
-	// 4. Potenzialità del D3
-
-	// #############################################################################
-	// #############################################################################
-	// #############################################################################
-
-	// D3 --------------------------------------------------------------------------
-
-
-
-	// POSITION --------------------------------------------------------------------
+	/* WEBPACK VAR INJECTION */(function(d3) {// LEVEL TRIGGER ---------------------------------------------------------------
 
 	document.addEventListener('DOMContentLoaded', function() {
 
-	  // d3.select('a-sky')
-	  //   .transition().duration(8000)
-	  //   .attr('color', '#A0FFFF');
+	  var cameras = {
+	    player: document.getElementById('camera-player'),
+	    topographic: document.getElementById('camera-top')
+	  }
 
-	  var playerCamera = document.getElementById('player');
+	  function cameraPlayer() {
+	    cameras.topographic.setAttribute('camera', 'active:false');
+	    cameras.player.setAttribute('camera', 'active:true');
+	  };
 
-	  // d3.select('html')
-	  //   .transition().duration(500)
-	  //   .style('background-color', 'red');
-	  //
-	  // d3.select('a-sky')
-	  //   .transition().duration(5000)
-	  //   .attr('color', 'red');
-	    //.style({color: 'black'});
-	    // .color('#000');
+	  function cameraTop() {
+	    cameras.player.setAttribute('camera', 'active:false');
+	    cameras.topographic.setAttribute('camera', 'active:true');
+	  };
 
-	//  console.log(playerPosition);
-	//  console.log(playerRotation);
+	  function cameraChange(e) {
+	    e = e || window.event;
+
+	    if(e.keyCode == '49') {
+	      cameraPlayer();
+	    } else if (e.keyCode == '50') {
+	      cameraTop();
+	    }
+	  };
+
+	  document.onkeydown = cameraChange;
 
 	  levelTrigger();
 
 	  function levelTrigger() {
-	    var playerPosition = playerCamera.getAttribute('position'),
-	        playerRotation = playerCamera.getAttribute('rotation'),
+	    var playerPosition = cameras.player.getAttribute('position'),
+	        playerRotation = cameras.player.getAttribute('rotation'),
 	        positionResult = {};
 
 	    var caverna = {
@@ -93867,18 +93856,6 @@
 
 	    // https://youtu.be/hM9h1wN4rfU
 	    var Objs = function() {
-
-	      this.albero = {
-	        x: {
-	          rangeA: 0,
-	          rangeB: 0,
-	        },
-	        y: 0,
-	        z: {
-	          rangeA: -5,
-	          rangeB: -7,
-	        }
-	      };
 
 	      this.world1 = {
 	        x: {
@@ -93923,55 +93900,20 @@
 	        },
 	        y: 0,
 	        z: {
-	          rangeA: -128,
-	          rangeB: 0
+	          rangeA: 0,
+	          rangeB: 128
 	        }
 	      };
 
-	      this.fire = {
-	        x: {
-	          rangeA: -2,
-	          rangeB: 0
-	        },
-	        y: 0,
-	        z: {
-	          rangeA: 0,
-	          rangeB: 2
-	        }
-	      };
 	    };
 
-	    /*
-	    var strategy = {
-	      strategies: {
-	        fire: function() {
-	          // TODO fire
-	        },
-	        albero: function() {
-	          // TODO albero
-	        }
-	      },
-	      action: function(type) {
-	        this.strategies[type]();
-	      }
-	    }
-
-	    strategy.action('fire');
-
-	    strategy.action('albero');
-	    */
 	    var instanceCollision = new Objs();
 
 	    var componentChanged = function(e) {
 
 	      positionResult = e.target.getAttribute('position');
 
-	      // console.log('Position: ', e.target.getAttribute('position'));
-
 	      var Range = {
-	        albero: function() {
-	          return (positionResult.z > instanceCollision.albero.z.rangeB && positionResult.z < instanceCollision.albero.z.rangeA);
-	        },
 	        world1: function() {
 	          return (
 	            (positionResult.z > instanceCollision.world1.z.rangeA && positionResult.z < instanceCollision.world1.z.rangeB) &&
@@ -93992,97 +93934,82 @@
 	        },
 	        world4: function() {
 	          return (
-	            (positionResult.z < instanceCollision.world3.z.rangeA && positionResult.z > instanceCollision.world3.z.rangeB) &&
-	            (positionResult.x < instanceCollision.world3.x.rangeA && positionResult.x > instanceCollision.world3.x.rangeB)
-	          );
-	        },
-	        fire: function() {
-	          return (
-	            (positionResult.z > instanceCollision.fire.z.rangeA && positionResult.z < instanceCollision.fire.z.rangeB) &&
-	            (positionResult.x > instanceCollision.fire.x.rangeA && positionResult.x < instanceCollision.fire.x.rangeB)
+	            (positionResult.z > instanceCollision.world4.z.rangeA && positionResult.z < instanceCollision.world4.z.rangeB) &&
+	            (positionResult.x > instanceCollision.world4.x.rangeA && positionResult.x < instanceCollision.world4.x.rangeB)
 	          );
 	        }
 	      };
 
 	      if (Range.world1()) {
-
+	        d3.select('.world_1_module')
+	          .attr('visible', 'true');
 	        d3.select('.sky')
-	          .attr('color', '#A0FFFF');
+	          .attr('color', '#A0FFFF')
+	          .transition()
+	            .duration(2000);
 	        d3.select('.ground')
-	          .attr('material', 'color: #274D29');
-
-	        // console.log('World 1');
-
+	          .attr('material', 'color: #274D29')
+	          .transition()
+	            .duration(2000);
 	      } else {
-	        // console.log('No World 1');
+	        d3.select('.world_1_module')
+	          .attr('visible', 'false');
 	      };
 
 	      if (Range.world2()) {
-
+	        d3.select('.world_2_module')
+	          .attr('visible', 'true');
 	        d3.select('.sky')
-	          .attr('color', '#D6FFC5');
+	          .attr('color', '#D6FFC5')
+	          .transition()
+	            .duration(2000);
 	        d3.select('.ground')
-	          .attr('material', 'color: #4E4720');
-
-	        // console.log('World 2');
-
+	          .attr('material', 'color: #4E4720')
+	          .transition()
+	            .duration(2000);
 	      } else {
-	        // console.log('No World 2');
+	        d3.select('.world_2_module')
+	          .attr('visible', 'false');
 	      };
 
 	      if (Range.world3()) {
-
-	        // console.log('World 3');
-
+	        d3.select('.world_3_module')
+	          .attr('visible', 'true');
 	        d3.select('.sky')
-	          .attr('color', '#D8ECAD');
+	          .attr('color', '#D8ECAD')
+	          .transition()
+	            .duration(2000);
 	        d3.select('.ground')
-	          .attr('material', 'color: #4F3F25');
-
+	          .attr('material', 'color: #4F3F25')
+	          .transition()
+	            .duration(2000);
 	      } else {
-	        // console.log('No World 2');
+	        d3.select('.world_3_module')
+	          .attr('visible', 'false');
 	      };
 
 	      if (Range.world4()) {
-
+	        d3.select('.world_4_module')
+	          .attr('visible', 'true');
 	        d3.select('.sky')
-	          .attr('color', '#DAE2B1');
+	          .attr('color', '#DAE2B1')
+	          .transition()
+	            .duration(2000);
 	        d3.select('.ground')
-	          .attr('material', 'color: #235244');
+	          .attr('material', 'color: #235244')
+	          .transition()
+	            .duration(2000);
 
-	        // console.log('World 4');
-
+	        var soundtrack = document.querySelector('[sound]');
+	        soundtrack.play();
 	      } else {
-	        // console.log('No World 2');
+	        d3.select('.world_4_module')
+	          .attr('visible', 'false');
 	      };
-
-	      if (Range.fire()) {
-	        // console.log('Fire!');
-	      } else {
-	        // console.log('Test2!');
-	      };
-
-	      if (Range.albero()) {
-	        // tree collision
-
-	        // d3.select('a-sky')
-	        //   .transition().duration(1000)
-	        //   .attr('color', 'red');
-
-	        // var positionP = playerCamera.getAttribute('position');
-	        //   positionP.z = -5;
-	        //   positionP.x = 15;
-	        //
-	        // playerCamera.setAttribute('position', positionP.x + ' ' + positionP.y + ' ' + positionP.z);
-	        // console.log('@######', positionP);
-	      } else {
-	        // d3.select('a-sky')
-	        //   .attr('color', 'green');
-	      }
 	    };
 
 	    if (playerPosition) {
-	      playerCamera.addEventListener('componentchanged', componentChanged);
+	      cameras.player.addEventListener('componentchanged', componentChanged);
 	    };
 	  };
 	});
