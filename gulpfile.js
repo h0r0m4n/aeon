@@ -36,7 +36,7 @@ gulp.task('jade-watch', ['jade'], reload);
 // STYLESHEETS -----------------------------------------------------------------
 
 gulp.task('stylesheets', function () {
-  return gulp.src('./src/sass/**/*.{scss,sass}')
+  return gulp.src('./src/stylesheets/**/*.{scss,sass}')
     .pipe(plumber())
     .pipe(sass({
       outputStyle: 'compressed'
@@ -48,7 +48,7 @@ gulp.task('stylesheets', function () {
 // JS --------------------------------------------------------------------------
 
 gulp.task('scripts', function() {
-  return gulp.src('./src/js/scripts.js')
+  return gulp.src('./src/scripts/scripts.js')
     .pipe(plumber())
     .pipe(webpackstream(
       require('./webpack.config.js')
@@ -61,7 +61,7 @@ gulp.task('scripts-watch', ['scripts'], reload);
 // IMAGE -----------------------------------------------------------------------
 
 gulp.task('images', function () {
-  return gulp.src('./src/img/*.{gif,jpg,jpeg,png,svg}')
+  return gulp.src('./src/images/*.{gif,jpg,jpeg,png,svg}')
     .pipe(plumber())
     .pipe(imagemin({
       optimizationLevel: 5,
@@ -102,9 +102,9 @@ gulp.task('default', ['clean', 'jade', 'scripts', 'stylesheets', 'images', 'obje
     notify: false,
   });
 
-  gulp.watch('./src/**/*.jade',             ['jade-watch']);
-  gulp.watch('./src/js/**/*.js',            ['scripts-watch']);
-  gulp.watch('./src/sass/**/*.{scss,sass}', ['stylesheets']);
+  gulp.watch('./src/**/*.jade',                    ['jade-watch']);
+  gulp.watch('./src/scripts/**/*.js',              ['scripts-watch']);
+  gulp.watch('./src/stylesheets/**/*.{scss,sass}', ['stylesheets']);
 });
 
 // DEPLOY ----------------------------------------------------------------------

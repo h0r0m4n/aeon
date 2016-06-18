@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var instanceCollision = new Objs();
 
-    var componentChanged = function(e) {
+    var componentChangedWatch = function(e) {
 
       positionResult = e.target.getAttribute('position');
 
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     if (playerPosition) {
-      cameras.player.addEventListener('componentchanged', componentChanged);
+      cameras.player.addEventListener('componentchanged', componentChangedWatch);
     };
   };
 });

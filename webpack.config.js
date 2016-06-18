@@ -2,9 +2,10 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    "./src/js/libs.js",
-    "./src/js/controls.js",
-    "./src/js/scripts.js"
+    "./src/scripts/libs.js",
+    "./src/scripts/controls.js",
+    "./src/scripts/d3.js",
+    "./src/scripts/scripts.js"
   ],
   output: {
     path: __dirname + "./dist/js/",
