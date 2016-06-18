@@ -53,15 +53,14 @@ gulp.task('scripts', function() {
     .pipe(webpackstream(
       require('./webpack.config.js')
     ))
-    .pipe(gulp.dest('./dist/js/'));
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(reload({stream: true}));
 });
-
-gulp.task('scripts-watch', ['scripts'], reload);
 
 // IMAGE -----------------------------------------------------------------------
 
 gulp.task('images', function () {
-  return gulp.src('./src/images/*.{gif,jpg,jpeg,png,svg}')
+  return gulp.src('./src/images/*')
     .pipe(plumber())
     .pipe(imagemin({
       optimizationLevel: 5,
@@ -71,12 +70,16 @@ gulp.task('images', function () {
     .pipe(gulp.dest('./dist/img/'));
 });
 
+gulp.task('images-watch', ['images'], reload);
+
 // OBJECTS ---------------------------------------------------------------------
 
 gulp.task('objects', function () {
   return gulp.src('./src/objects/*')
     .pipe(gulp.dest('./dist/objects'));
 });
+
+gulp.task('objects-watch', ['objects'], reload);
 
 // COPY ------------------------------------------------------------------------
 
@@ -103,8 +106,10 @@ gulp.task('default', ['clean', 'jade', 'scripts', 'stylesheets', 'images', 'obje
   });
 
   gulp.watch('./src/**/*.jade',                    ['jade-watch']);
-  gulp.watch('./src/scripts/**/*.js',              ['scripts-watch']);
+  gulp.watch('./src/scripts/**/*.js',              ['scripts']);
   gulp.watch('./src/stylesheets/**/*.{scss,sass}', ['stylesheets']);
+  gulp.watch('./src/objects/*',                    ['objects-watch']);
+  gulp.watch('./src/images/*',                     ['images-watch']);
 });
 
 // DEPLOY ----------------------------------------------------------------------
