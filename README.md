@@ -2,6 +2,10 @@
 
 A prequel WebVR environment to videogame Aeon
 
+## Map
+
+![Map](map.png)
+
 ## Installation
 
 - `npm install` to download all dependencies
