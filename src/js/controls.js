@@ -867,7 +867,7 @@ module.exports = {
     enabled:           { default: true },
 
     // Debugging
-    debug:             { default: false }
+    debug:             { default: true }
   },
 
   /*******************************************************************
@@ -969,23 +969,23 @@ module.exports = {
    */
 
   updateButtonState: function () {
-    var gamepad = this.getGamepad();
-    if (this.data.enabled && gamepad) {
-
-      // Fire DOM events for button state changes.
-      for (var i = 0; i < gamepad.buttons.length; i++) {
-        if (gamepad.buttons[i].pressed && !this.buttons[i]) {
-          this.emit(new GamepadButtonEvent('gamepadbuttondown', i, gamepad.buttons[i]));
-        } else if (!gamepad.buttons[i].pressed && this.buttons[i]) {
-          this.emit(new GamepadButtonEvent('gamepadbuttonup', i, gamepad.buttons[i]));
-        }
-        this.buttons[i] = gamepad.buttons[i].pressed;
-      }
-
-    } else if (Object.keys(this.buttons)) {
-      // Reset state if controls are disabled or controller is lost.
-      this.buttons = {};
-    }
+    // var gamepad = this.getGamepad();
+    // if (this.data.enabled && gamepad) {
+		//
+    //   // Fire DOM events for button state changes.
+    //   for (var i = 0; i < gamepad.buttons.length; i++) {
+    //     if (gamepad.buttons[i].pressed && !this.buttons[i]) {
+    //       this.emit(new GamepadButtonEvent('gamepadbuttondown', i, gamepad.buttons[i]));
+    //     } else if (!gamepad.buttons[i].pressed && this.buttons[i]) {
+    //       this.emit(new GamepadButtonEvent('gamepadbuttonup', i, gamepad.buttons[i]));
+    //     }
+    //     this.buttons[i] = gamepad.buttons[i].pressed;
+    //   }
+		//
+    // } else if (Object.keys(this.buttons)) {
+    //   // Reset state if controls are disabled or controller is lost.
+    //   this.buttons = {};
+    // }
   },
 
   emit: function (event) {

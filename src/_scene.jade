@@ -1,6 +1,6 @@
-//- a-scene(stats, fog="type: exponential; color: #{fog1}; density: 0.05;", vr-mode-ui="enabled: false")
-a-scene#scene
-  
+//- a-scene#scene(stats, fog="type: linear; color: #A0FFFF; far: 30")
+a-scene.scene(stats)
+
   //- INFOS --------------------------------------------------------------------
   
   //- position="x y z"
@@ -13,26 +13,26 @@ a-scene#scene
 
   //- WORLD 1 ------------------------------------------------------------------  
   
-  a-entity.world_1_module(position="0 0 0", rotation="0 0 0")
+  a-entity.world_1_module(visible="false", position="0 0 0", rotation="0 0 0")
     include _world_1_module.jade
-
+  
   a-entity(collada-model="#world_1_fire", scale="1 1 1", position="-32 0 40", rotation="0 0 0")
-
+  
   //- WORLD 2 ------------------------------------------------------------------  
-
+  
   a-entity.world_2_module(position="0 0 0", rotation="0 0 0")
     include _world_2_module.jade
     
   //- WORLD 3 ------------------------------------------------------------------  
-
+  
   a-entity.world_3_module(position="0 0 0", rotation="0 0 0")
     include _world_3_module.jade
-
+  
   a-entity(collada-model="#canyon_1", scale="1 1 1", position="51 0 -50", rotation="0 -90 0")
   a-entity(collada-model="#canyon_2", scale="1 1 1", position="51 0 -38", rotation="0 -93 0")
-
+  
   //- WORLD 4 ------------------------------------------------------------------  
-
+  
   a-entity.world_4_module(position="0 0 0", rotation="0 0 0")
     include _world_4_module.jade
     
@@ -74,9 +74,14 @@ a-scene#scene
   //- world_1: #A0FFFF | world_2: #D6FFC5 | world_3: #D8ECAD | world_4: #DAE2B1
   a-sky.sky(color="#CCC", radius="1000")
   
+  //- SOUND --------------------------------------------------------------------
+  
+  a-entity.soundtrack(sound="src: objects/soundtrack.mp3")
+
   //- PLAYER -------------------------------------------------------------------
   
   //- https://github.com/donmccurdy/aframe-extras/tree/master/src/controls#input-devices
   
   //- DEBUG: a-entity#player(camera, universal-controls, position="0 75 0", rotation="-90 0 0")
-  a-entity#player(camera, universal-controls, position="-31 1.5 44")
+  a-entity#camera-player(camera="true", universal-controls, position="-31 1.5 44")
+  a-entity#camera-top(camera="false", position="0 75 0", rotation="-90 0 0")
