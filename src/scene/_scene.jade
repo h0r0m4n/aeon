@@ -55,6 +55,11 @@ a-scene.scene(stats)
   
   a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #4296BA; transparent: true; opacity: 0.5", position="0 -0.1 0", rotation="-90 0 0")
   
+  //- SUN ----------------------------------------------------------------------
+  
+  a-entity.sun(position="120 90 44", rotation ="0 -90 0")
+    a-entity(geometry="primitive: circle; radius: 1", material="color: #FFD200", scale="10 10 10")
+  
   //- Lights -------------------------------------------------------------------
 
   //- luminosità dell’ambiente
