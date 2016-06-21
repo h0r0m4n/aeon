@@ -1,13 +1,22 @@
-var gulp          = require('gulp');
-var plumber       = require('gulp-plumber');
-var webpackstream = require('webpack-stream');
-var del           = require('del');
-var browserSync   = require('browser-sync');
+var gulp          = require('gulp'),
+    plumber       = require('gulp-plumber'),
+    del           = require('del'),
+    ghPages       = require('gulp-gh-pages');
+
 var jade          = require('gulp-jade');
+
 var imagemin      = require('gulp-imagemin');
-var sass          = require('gulp-sass');
-var reload        = browserSync.reload;
-var ghPages       = require('gulp-gh-pages');
+
+var webpackstream = require('webpack-stream');
+
+var sass         = require('gulp-sass'),
+    combineMq    = require('gulp-combine-mq'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cssnano      = require('gulp-cssnano'),
+    shorthand    = require('gulp-shorthand');
+
+var browserSync   = require('browser-sync'),
+    reload        = browserSync.reload;
 
 // CLEAN -----------------------------------------------------------------------
 
@@ -35,12 +44,30 @@ gulp.task('jade-watch', ['jade'], reload);
 
 // STYLESHEETS -----------------------------------------------------------------
 
+var AUTOPREFIXER_BROWSERS = {
+  browsers: [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  ]
+};
+
 gulp.task('stylesheets', function () {
   return gulp.src('./src/stylesheets/**/*.{scss,sass}')
     .pipe(plumber())
     .pipe(sass({
-      outputStyle: 'compressed'
+      precision: 6
     }).on('error', sass.logError))
+    .pipe(combineMq())
+    .pipe(shorthand())
+    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(cssnano())
     .pipe(gulp.dest('./dist/css/'))
     .pipe(reload({stream: true}));
 });
