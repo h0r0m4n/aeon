@@ -8,7 +8,7 @@
 
 # THANKS
 
-  Don McCurdy
+  Don McCurdy -- @donmccurdy
 
 # TECHNOLOGY COLOPHON
 
