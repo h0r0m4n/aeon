@@ -1,5 +1,6 @@
 var gulp          = require('gulp'),
     plumber       = require('gulp-plumber'),
+    path          = require('path'),
     del           = require('del'),
     ghPages       = require('gulp-gh-pages');
 
@@ -15,6 +16,10 @@ var sass         = require('gulp-sass'),
     cssnano      = require('gulp-cssnano'),
     shorthand    = require('gulp-shorthand');
 
+var cheerio      = require('gulp-cheerio'),
+    svgstore     = require('gulp-svgstore'),
+    svgmin       = require('gulp-svgmin');
+
 var browserSync   = require('browser-sync'),
     reload        = browserSync.reload;
 
@@ -24,6 +29,30 @@ gulp.task('clean', function () {
   return del.sync([
     './dist/**/*'
   ]);
+});
+
+// ICONS -----------------------------------------------------------------------
+
+gulp.task('icons', function () {
+  return gulp.src(['./src/icons/**/*.svg'])
+    .pipe(plumber())
+    .pipe(svgmin(function (file) {
+      var prefix = path.basename(file.relative, path.extname(file.relative));
+      return {
+        plugins: [{
+          cleanupIDs: {
+            prefix: prefix + '-',
+            minify: true
+          }
+        }]
+      }
+    }))
+    .pipe(svgstore())
+    .pipe(cheerio(function ($) {
+      $('[fill]').removeAttr('fill');
+      $('svg').attr('display', 'none');
+    }))
+    .pipe(gulp.dest('./src/icons/tmp/'));
 });
 
 // JADE ------------------------------------------------------------------------
@@ -84,7 +113,7 @@ gulp.task('scripts', function() {
     .pipe(reload({stream: true}));
 });
 
-// IMAGE -----------------------------------------------------------------------
+// IMAGES ----------------------------------------------------------------------
 
 gulp.task('images', function () {
   return gulp.src('./src/images/*')
@@ -122,7 +151,7 @@ gulp.task('copy', function () {
 
 // DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('default', ['clean', 'jade', 'scripts', 'stylesheets', 'images', 'objects', 'copy'], function () {
+gulp.task('default', ['clean', 'icons', 'jade', 'scripts', 'stylesheets', 'images', 'objects', 'copy'], function () {
 
   browserSync({
     server: './dist',

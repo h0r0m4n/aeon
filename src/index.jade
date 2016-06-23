@@ -3,8 +3,9 @@ doctype html
 html
   include _head.jade
   body
-    include _loader.jade
-    include _info.jade
+    include icons/tmp/icons.svg
+    //- include _loader.jade
+    include _header.jade
+    include _nav.jade
+    include _aside.jade
     include scene/_scene.jade
-    .logo
-      img(src="img/logo.png", alt="#{title}")

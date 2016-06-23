@@ -1,6 +1,6 @@
-// LEVEL TRIGGER ---------------------------------------------------------------
-
 document.addEventListener('DOMContentLoaded', function() {
+
+  // LEVEL TRIGGER -------------------------------------------------------------
 
   var cameras = {
     player: document.getElementById('camera-player'),
@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   levelTrigger();
 
   function levelTrigger() {
-    var playerPosition = cameras.player.getAttribute('position'),
-        playerRotation = cameras.player.getAttribute('rotation'),
+    var playerPosition = cameras.player.components.camera.camera.position,
         positionResult = {};
 
     var caverna = {
@@ -200,6 +199,19 @@ document.addEventListener('DOMContentLoaded', function() {
       cameras.player.addEventListener('componentchanged', componentChangedWatch);
     };
   };
+
+  // NAV -----------------------------------------------------------------------
+
+  var infoOpener = document.getElementById('infoOpener'),
+      infoAside = document.getElementById('infoAside');
+
+  if (infoOpener) {
+    infoOpener.addEventListener('click', function (e) {
+      infoAside.classList.toggle('open');
+      e.preventDefault();
+    });
+  };
+
 });
 
 // STATS -----------------------------------------------------------------------
