@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   levelTrigger();
 
   function levelTrigger() {
-    var playerPosition = cameras.player.components.camera.camera.position,
+    var playerPosition = cameras.player.getAttribute('position'),
         positionResult = {};
 
     var caverna = {
@@ -128,70 +128,142 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       if (Range.world1()) {
+
+        d3.select('.world_1_terrain')
+          .attr('visible', 'true');
+
         d3.select('.world_1_module')
           .attr('visible', 'true');
+
+        d3.select('.world_1_fire')
+          .attr('visible', 'true');
+
         d3.select('.sky')
           .attr('color', '#A0FFFF')
           .transition()
             .duration(2000);
-        d3.select('.ground')
-          .attr('material', 'color: #274D29')
-          .transition()
-            .duration(2000);
+
+        // d3.select('.ground')
+        //   .attr('material', 'color: #274D29')
+        //   .transition()
+        //     .duration(2000);
+
       } else {
+
+        d3.select('.world_1_terrain')
+          .attr('visible', 'false');
+
         d3.select('.world_1_module')
           .attr('visible', 'false');
+
+        d3.select('.world_1_fire')
+          .attr('visible', 'false');
+
       };
 
       if (Range.world2()) {
+
+        d3.select('.world_2_terrain')
+          .attr('visible', 'true');
+
         d3.select('.world_2_module')
           .attr('visible', 'true');
+
         d3.select('.sky')
           .attr('color', '#D6FFC5')
           .transition()
             .duration(2000);
-        d3.select('.ground')
-          .attr('material', 'color: #4E4720')
-          .transition()
-            .duration(2000);
+
+        // d3.select('.ground')
+        //   .attr('material', 'color: #4E4720')
+        //   .transition()
+        //     .duration(2000);
+
       } else {
+
+        d3.select('.world_2_terrain')
+          .attr('visible', 'false');
+
         d3.select('.world_2_module')
           .attr('visible', 'false');
+
       };
 
       if (Range.world3()) {
+
+        d3.select('.world_3_terrain')
+          .attr('visible', 'true');
+
         d3.select('.world_3_module')
           .attr('visible', 'true');
+
+        d3.select('.canyon_1')
+          .attr('visible', 'true');
+
+        d3.select('.canyon_2')
+          .attr('visible', 'true');
+
         d3.select('.sky')
           .attr('color', '#D8ECAD')
           .transition()
             .duration(2000);
-        d3.select('.ground')
-          .attr('material', 'color: #4F3F25')
-          .transition()
-            .duration(2000);
+
+        // d3.select('.ground')
+        //   .attr('material', 'color: #4F3F25')
+        //   .transition()
+        //     .duration(2000);
+
       } else {
+
+        d3.select('.world_3_terrain')
+          .attr('visible', 'false');
+
         d3.select('.world_3_module')
           .attr('visible', 'false');
+
+        d3.select('.canyon_1')
+          .attr('visible', 'false');
+
+        d3.select('.canyon_2')
+          .attr('visible', 'false');
+
       };
 
       if (Range.world4()) {
+
+        d3.select('.world_4_terrain')
+          .attr('visible', 'true');
+
         d3.select('.world_4_module')
           .attr('visible', 'true');
+
+        d3.select('.planet')
+          .attr('visible', 'true');
+
         d3.select('.sky')
           .attr('color', '#DAE2B1')
           .transition()
             .duration(2000);
-        d3.select('.ground')
-          .attr('material', 'color: #235244')
-          .transition()
-            .duration(2000);
+
+        // d3.select('.ground')
+        //   .attr('material', 'color: #235244')
+        //   .transition()
+        //     .duration(2000);
 
         var soundtrack = document.querySelector('[sound]');
         soundtrack.play();
+
       } else {
+
+        d3.select('.world_4_terrain')
+          .attr('visible', 'false');
+
         d3.select('.world_4_module')
           .attr('visible', 'false');
+
+        d3.select('.planet')
+          .attr('visible', 'false');
+
       };
     };
 

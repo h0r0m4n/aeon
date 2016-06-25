@@ -2,7 +2,8 @@
 a-scene.scene
 
   //- INFOS --------------------------------------------------------------------
-  
+
+  //- per far diventare il buio si fa fog + due luci = 3 #000
   //- position="x y z"
   
   //- ASSETS ---------------------------------------------------------------
@@ -13,35 +14,43 @@ a-scene.scene
 
   //- WORLD 1 ------------------------------------------------------------------  
   
-  a-entity.world_1_module(visible="false", position="0 0 0", rotation="0 0 0")
+  a-entity.world_1_module(position="0 0 0", rotation="0 0 0", visible="false")
     include _world_1_module.jade
+
+  a-entity.world_1_fire(collada-model="#world_1_fire", scale="1 1 1", position="-32 0 40", rotation="0 0 0", visible="false")
   
-  a-entity(collada-model="#world_1_fire", scale="1 1 1", position="-32 0 40", rotation="0 0 0")
+  a-entity.world_1_terrain(collada-model="#world_1_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
 
   //- WORLD 2 ------------------------------------------------------------------  
   
-  a-entity.world_2_module(position="0 0 0", rotation="0 0 0")
+  a-entity.world_2_module(position="0 0 0", rotation="0 0 0", visible="false")
     include _world_2_module.jade
+  
+  a-entity.world_2_terrain(collada-model="#world_2_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
     
   //- WORLD 3 ------------------------------------------------------------------  
   
-  a-entity.world_3_module(position="0 0 0", rotation="0 0 0")
+  a-entity.world_3_module(position="0 0 0", rotation="0 0 0", visible="false")
     include _world_3_module.jade
   
-  a-entity(collada-model="#canyon_1", scale="1 1 1", position="51 0 -50", rotation="0 -90 0")
-  a-entity(collada-model="#canyon_2", scale="1 1 1", position="51 0 -38", rotation="0 -93 0")
+  a-entity.canyon_1(collada-model="#canyon_1", scale="1 1 1", position="51 0 -50", rotation="0 -90 0", visible="false")
+  a-entity.canyon_2(collada-model="#canyon_2", scale="1 1 1", position="51 0 -38", rotation="0 -93 0", visible="false")
+  
+  a-entity.world_3_terrain(collada-model="#world_3_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
   
   //- WORLD 4 ------------------------------------------------------------------  
   
-  a-entity.world_4_module(position="0 0 0", rotation="0 0 0")
+  a-entity.world_4_module(position="0 0 0", rotation="0 0 0", visible="false")
     include _world_4_module.jade
     
-  a-entity.planet(position="100 0 100")
+  a-entity.planet(position="100 0 100", visible="false")
     include _planet.jade
+
+  a-entity.world_4_terrain(collada-model="#world_4_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
 
   //- MOUNTAIN -----------------------------------------------------------------
 
-  a-entity(selectable, collada-model="#mountain", scale="1 1 1", position="-0.5 0 0", rotation="0 -177 0")
+  a-entity.mountain(selectable, collada-model="#mountain", scale="1 1 1", position="-0.5 0 0", rotation="0 -177 0", visible="true")
 
   //- ISLAND -------------------------------------------------------------------
   
@@ -49,34 +58,27 @@ a-scene.scene
   //- a-entity(collada-model="#island", scale="1 1 1", position="0 0 0", rotation="0 0 0")
   
   //- world_1: #274D29 | world_2: #4E4720 | world_3: #4F3F25 | world_4: #235244
-  a-entity.ground(geometry="primitive: circle; radius: 64", material="color: #CCC;", position="0 0 0", rotation="-90 0 0")
+  //- a-entity.ground(geometry="primitive: circle; radius: 64", material="color: #000;", position="0 0 0", rotation="-90 0 0")
 
   //- SEA ----------------------------------------------------------------------
-  
-  a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #4296BA; transparent: true; opacity: 0.5", position="0 -0.1 0", rotation="-90 0 0")
-  
+
+  a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #4296BA; transparent: true; opacity: 0.5", position="0 -0.5 0", rotation="-90 0 0")
+
   //- SUN ----------------------------------------------------------------------
-  
+
   a-entity.sun(position="120 90 44", rotation ="0 -90 0")
     a-entity(geometry="primitive: circle; radius: 1", material="color: #FFD200", scale="10 10 10")
-  
+
   //- Lights -------------------------------------------------------------------
 
-  //- luminosità dell’ambiente
-  a-light(light="type: ambient; color: #FFF;")
-  //- simile al sole
-  a-light(light="type: directional; color: #FFF; intensity: 1", position="-1 1 0")
-
-  //- risolvere il problema delle luce
-  
-  //- offre di realizzare il gradiente tra i due colori
-  //- a-entity(light="type: hemisphere; color: #E7E7E7; groundColor: #E7E7E7; intensity: 0.5")
-  //- a-entity(light="type: point; intensity: 0.75; distance: 50; decay: 2", position="0 10 10")
-  //- a-entity(light="type: spot; angle: 45")
+  a-light.ambient(light="type: ambient; color: #FFF;")
+  a-light.directional(light="type: directional; color: #FFF; intensity: 1", position="-1 1 0")
+  //- a-entity(light="type: hemisphere; color: #red; groundColor: #blue; intensity: 0.5")
+  //- a-entity(light="type: point; intensity: 0.75; distance: 50; decay: 2", position="-31 1.5 44")
+  //- a-entity(light="type: spot" position="-31 15 44")
 
   //- Sky ----------------------------------------------------------------------
   
-  //- world_1: #A0FFFF | world_2: #D6FFC5 | world_3: #D8ECAD | world_4: #DAE2B1
   a-sky.sky(color="#CCC", radius="1000")
   
   //- SOUND --------------------------------------------------------------------
@@ -84,9 +86,8 @@ a-scene.scene
   a-entity.soundtrack(sound="src: objects/soundtrack.mp3")
 
   //- PLAYER -------------------------------------------------------------------
-  
-  //- https://github.com/donmccurdy/aframe-extras/tree/master/src/controls#input-devices
-  
-  //- DEBUG: a-entity#player(camera, universal-controls, position="0 75 0", rotation="-90 0 0")
+
   a-entity#camera-player(camera="true", universal-controls, position="-31 1.5 44")
+    a-entity.light(light="type: point; intensity: 1.5; distance: 50; decay: 2" position="0 0 0", rotation="0 0 0")
+
   a-entity#camera-top(camera="false", position="0 75 0", rotation="-90 0 0")
