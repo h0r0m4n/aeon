@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  // LOADER --------------------------------------------------------------------
+
+  loader();
+
+  function loader() {
+    var loader = document.getElementById('loader');
+
+    setTimeout(function() {
+      loader.classList.add('complete');
+    }, 2000);
+  };
+
   // LEVEL TRIGGER -------------------------------------------------------------
 
   var cameras = {
@@ -289,12 +301,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // NAV -----------------------------------------------------------------------
 
   var infoOpener = document.getElementById('infoOpener'),
-      infoAside = document.getElementById('infoAside');
+      app = document.getElementById('app');
 
   if (infoOpener) {
     infoOpener.addEventListener('click', function (e) {
-      infoAside.classList.toggle('open');
+      app.classList.toggle('open');
       e.preventDefault();
+      return false;
     });
   };
 

@@ -1,7 +1,12 @@
-.loading
-  .box
-    img(src="img/logo.png", alt="#{title}")
-    p.loaded
-      span.loaded-1 .
-      span.loaded-2 .
-      span.loaded-3 .
+#loader.loader
+  .container
+    .brand
+      svg.logo
+        use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo")
+    .points
+      svg.point.point-1
+        use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#point")
+      svg.point.point-2
+        use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#point")
+      svg.point.point-3
+        use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#point")
