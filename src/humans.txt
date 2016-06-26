@@ -4,10 +4,10 @@
 # TEAM
 
   Roman Horokhovatskyy -- Design -- @h0r0man
-  Giuseppe Messina -- Supervision -- @Kz_M
 
 # THANKS
 
+  Giuseppe Messina -- @Kz_M
   Don McCurdy -- @donmccurdy
 
 # TECHNOLOGY COLOPHON
