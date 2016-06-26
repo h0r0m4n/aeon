@@ -43,7 +43,7 @@ a-scene.scene
   a-entity.world_4_module(position="0 0 0", rotation="0 0 0", visible="false")
     include _world_4_module.jade
     
-  a-entity.planet(position="100 0 100", visible="false")
+  a-entity.planet(position="90 0 70", visible="false")
     include _planet.jade
 
   a-entity.world_4_terrain(collada-model="#world_4_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
@@ -80,6 +80,7 @@ a-scene.scene
   //- Sky ----------------------------------------------------------------------
   
   a-sky.sky(color="#CCC", radius="1000")
+  a-entity.sphere(geometry="primitive: sphere; radius: 128", material="color: #CCC; side: double")
   
   //- SOUND --------------------------------------------------------------------
   

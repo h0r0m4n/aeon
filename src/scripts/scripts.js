@@ -96,179 +96,193 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var instanceCollision = new Objs();
 
-    var componentChangedWatch = function(e) {
-
-      positionResult = e.target.getAttribute('position');
-
-      var Range = {
-        world1: function() {
-          return (
-            (positionResult.z > instanceCollision.world1.z.rangeA && positionResult.z < instanceCollision.world1.z.rangeB) &&
-            (positionResult.x > instanceCollision.world1.x.rangeA && positionResult.x < instanceCollision.world1.x.rangeB)
-          );
-        },
-        world2: function() {
-          return (
-            (positionResult.z > instanceCollision.world2.z.rangeA && positionResult.z < instanceCollision.world2.z.rangeB) &&
-            (positionResult.x > instanceCollision.world2.x.rangeA && positionResult.x < instanceCollision.world2.x.rangeB)
-          );
-        },
-        world3: function() {
-          return (
-            (positionResult.z > instanceCollision.world3.z.rangeA && positionResult.z < instanceCollision.world3.z.rangeB) &&
-            (positionResult.x > instanceCollision.world3.x.rangeA && positionResult.x < instanceCollision.world3.x.rangeB)
-          );
-        },
-        world4: function() {
-          return (
-            (positionResult.z > instanceCollision.world4.z.rangeA && positionResult.z < instanceCollision.world4.z.rangeB) &&
-            (positionResult.x > instanceCollision.world4.x.rangeA && positionResult.x < instanceCollision.world4.x.rangeB)
-          );
-        }
-      };
-
-      if (Range.world1()) {
-
-        d3.select('.world_1_terrain')
-          .attr('visible', 'true');
-
-        d3.select('.world_1_module')
-          .attr('visible', 'true');
-
-        d3.select('.world_1_fire')
-          .attr('visible', 'true');
-
-        d3.select('.sky')
-          .attr('color', '#A0FFFF')
-          .transition()
-            .duration(2000);
-
-        // d3.select('.ground')
-        //   .attr('material', 'color: #274D29')
-        //   .transition()
-        //     .duration(2000);
-
-      } else {
-
-        d3.select('.world_1_terrain')
-          .attr('visible', 'false');
-
-        d3.select('.world_1_module')
-          .attr('visible', 'false');
-
-        d3.select('.world_1_fire')
-          .attr('visible', 'false');
-
-      };
-
-      if (Range.world2()) {
-
-        d3.select('.world_2_terrain')
-          .attr('visible', 'true');
-
-        d3.select('.world_2_module')
-          .attr('visible', 'true');
-
-        d3.select('.sky')
-          .attr('color', '#D6FFC5')
-          .transition()
-            .duration(2000);
-
-        // d3.select('.ground')
-        //   .attr('material', 'color: #4E4720')
-        //   .transition()
-        //     .duration(2000);
-
-      } else {
-
-        d3.select('.world_2_terrain')
-          .attr('visible', 'false');
-
-        d3.select('.world_2_module')
-          .attr('visible', 'false');
-
-      };
-
-      if (Range.world3()) {
-
-        d3.select('.world_3_terrain')
-          .attr('visible', 'true');
-
-        d3.select('.world_3_module')
-          .attr('visible', 'true');
-
-        d3.select('.canyon_1')
-          .attr('visible', 'true');
-
-        d3.select('.canyon_2')
-          .attr('visible', 'true');
-
-        d3.select('.sky')
-          .attr('color', '#D8ECAD')
-          .transition()
-            .duration(2000);
-
-        // d3.select('.ground')
-        //   .attr('material', 'color: #4F3F25')
-        //   .transition()
-        //     .duration(2000);
-
-      } else {
-
-        d3.select('.world_3_terrain')
-          .attr('visible', 'false');
-
-        d3.select('.world_3_module')
-          .attr('visible', 'false');
-
-        d3.select('.canyon_1')
-          .attr('visible', 'false');
-
-        d3.select('.canyon_2')
-          .attr('visible', 'false');
-
-      };
-
-      if (Range.world4()) {
-
-        d3.select('.world_4_terrain')
-          .attr('visible', 'true');
-
-        d3.select('.world_4_module')
-          .attr('visible', 'true');
-
-        d3.select('.planet')
-          .attr('visible', 'true');
-
-        d3.select('.sky')
-          .attr('color', '#DAE2B1')
-          .transition()
-            .duration(2000);
-
-        // d3.select('.ground')
-        //   .attr('material', 'color: #235244')
-        //   .transition()
-        //     .duration(2000);
-
-        var soundtrack = document.querySelector('[sound]');
-        soundtrack.play();
-
-      } else {
-
-        d3.select('.world_4_terrain')
-          .attr('visible', 'false');
-
-        d3.select('.world_4_module')
-          .attr('visible', 'false');
-
-        d3.select('.planet')
-          .attr('visible', 'false');
-
-      };
-    };
-
     if (playerPosition) {
-      cameras.player.addEventListener('componentchanged', componentChangedWatch);
+      cameras.player.addEventListener('componentchanged', function (e) {
+        positionResult = e.target.getAttribute('position');
+
+        var Range = {
+          world1: function() {
+            return (
+              (positionResult.z > instanceCollision.world1.z.rangeA && positionResult.z < instanceCollision.world1.z.rangeB) &&
+              (positionResult.x > instanceCollision.world1.x.rangeA && positionResult.x < instanceCollision.world1.x.rangeB)
+            );
+          },
+          world2: function() {
+            return (
+              (positionResult.z > instanceCollision.world2.z.rangeA && positionResult.z < instanceCollision.world2.z.rangeB) &&
+              (positionResult.x > instanceCollision.world2.x.rangeA && positionResult.x < instanceCollision.world2.x.rangeB)
+            );
+          },
+          world3: function() {
+            return (
+              (positionResult.z > instanceCollision.world3.z.rangeA && positionResult.z < instanceCollision.world3.z.rangeB) &&
+              (positionResult.x > instanceCollision.world3.x.rangeA && positionResult.x < instanceCollision.world3.x.rangeB)
+            );
+          },
+          world4: function() {
+            return (
+              (positionResult.z > instanceCollision.world4.z.rangeA && positionResult.z < instanceCollision.world4.z.rangeB) &&
+              (positionResult.x > instanceCollision.world4.x.rangeA && positionResult.x < instanceCollision.world4.x.rangeB)
+            );
+          }
+        };
+
+        if (Range.world1()) {
+
+          d3.select('.world_1_terrain')
+            .attr('visible', 'true');
+
+          d3.select('.world_1_module')
+            .attr('visible', 'true');
+
+          d3.select('.world_1_fire')
+            .attr('visible', 'true');
+
+          d3.select('.sky')
+            .attr('color', '#A0FFFF')
+            .transition()
+              .duration(2000);
+
+          d3.select('.sphere')
+            .attr('material', 'color: #A0FFFF; side: double')
+
+          removeEventListener('componentchanged', true);
+
+          // d3.select('.ground')
+          //   .attr('material', 'color: #274D29')
+          //   .transition()
+          //     .duration(2000);
+
+        } else {
+
+          // this.addEventListener('componentchanged', true);
+
+          d3.select('.world_1_terrain')
+            .attr('visible', 'false');
+
+          d3.select('.world_1_module')
+            .attr('visible', 'false');
+
+          d3.select('.world_1_fire')
+            .attr('visible', 'false');
+
+        };
+
+        if (Range.world2()) {
+
+          d3.select('.world_2_terrain')
+            .attr('visible', 'true');
+
+          d3.select('.world_2_module')
+            .attr('visible', 'true');
+
+          d3.select('.sky')
+            .attr('color', '#D6FFC5')
+            .transition()
+              .duration(2000);
+
+          d3.select('.sphere')
+            .attr('material', 'color: #D6FFC5; side: double')
+
+          // d3.select('.ground')
+          //   .attr('material', 'color: #4E4720')
+          //   .transition()
+          //     .duration(2000);
+
+        } else {
+
+          d3.select('.world_2_terrain')
+            .attr('visible', 'false');
+
+          d3.select('.world_2_module')
+            .attr('visible', 'false');
+
+        };
+
+        if (Range.world3()) {
+
+          d3.select('.world_3_terrain')
+            .attr('visible', 'true');
+
+          d3.select('.world_3_module')
+            .attr('visible', 'true');
+
+          d3.select('.canyon_1')
+            .attr('visible', 'true');
+
+          d3.select('.canyon_2')
+            .attr('visible', 'true');
+
+          d3.select('.sky')
+            .attr('color', '#D8ECAD')
+            .transition()
+              .duration(2000);
+
+          d3.select('.sphere')
+            .attr('material', 'color: #D8ECAD; side: double')
+
+          // d3.select('.ground')
+          //   .attr('material', 'color: #4F3F25')
+          //   .transition()
+          //     .duration(2000);
+
+        } else {
+
+          d3.select('.world_3_terrain')
+            .attr('visible', 'false');
+
+          d3.select('.world_3_module')
+            .attr('visible', 'false');
+
+          d3.select('.canyon_1')
+            .attr('visible', 'false');
+
+          d3.select('.canyon_2')
+            .attr('visible', 'false');
+
+        };
+
+        if (Range.world4()) {
+
+          d3.select('.world_4_terrain')
+            .attr('visible', 'true');
+
+          d3.select('.world_4_module')
+            .attr('visible', 'true');
+
+          d3.select('.planet')
+            .attr('visible', 'true');
+
+          d3.select('.sky')
+            .attr('color', '#DAE2B1')
+            .transition()
+              .duration(2000);
+
+          d3.select('.sphere')
+            .attr('material', 'color: #DAE2B1; side: double')
+
+          // d3.select('.ground')
+          //   .attr('material', 'color: #235244')
+          //   .transition()
+          //     .duration(2000);
+
+          var soundtrack = document.querySelector('[sound]');
+          soundtrack.play();
+
+        } else {
+
+          d3.select('.world_4_terrain')
+            .attr('visible', 'false');
+
+          d3.select('.world_4_module')
+            .attr('visible', 'false');
+
+          d3.select('.planet')
+            .attr('visible', 'false');
+
+        };
+
+      });
     };
   };
 
