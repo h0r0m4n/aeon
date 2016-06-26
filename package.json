@@ -29,7 +29,8 @@
     "gulp-shorthand": "^1.1.0",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
-    "jstransformer-marked": "^1.0.1",
+    "jstransformer-markdown": "^1.1.0",
+    "jstransformer-markdown-yml": "0.0.2",
     "webpack-stream": "^3.2.0"
   }
 }
