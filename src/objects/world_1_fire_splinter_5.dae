@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
+    </contributor>
+    <created>2016-06-28T19:35:50</created>
+    <modified>2016-06-28T19:35:50</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="fire_small-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">1 0.7925407 0.128672 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="fire_small-material" name="fire_small">
+      <instance_effect url="#fire_small-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh" name="Island Fire1 Fire Null_61 Pyramid_111.004">
+      <mesh>
+        <source id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-positions">
+          <float_array id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-positions-array" count="18">-90.34503 64.10852 -212.0563 -97.36544 39.38927 -210.6958 -84.46467 35.50491 -216.2578 -77.62686 60.34034 -217.7707 -116.2477 66.05835 -263.4085 -69.81023 47.25556 -172.4458</float_array>
+          <technique_common>
+            <accessor source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-positions-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-normals">
+          <float_array id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-normals-array" count="30">0.3960965 -0.05321431 0.9166656 -0.3912893 -0.8699973 -0.2999957 -0.856189 0.2674915 0.4420279 0.2465478 0.965153 -0.08771497 0.7262064 -0.239205 -0.6445195 0.3601718 0.9110012 0.2008809 -0.8082152 0.2586551 0.5290424 -0.1524632 -0.9406259 0.3032786 0.9323356 -0.271261 -0.2390984 0.3806572 -0.05731111 0.9229386</float_array>
+          <technique_common>
+            <accessor source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-normals-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-map-0">
+          <float_array id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-map-0-array" count="60">0 0 1 1 0 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 1 1</float_array>
+          <technique_common>
+            <accessor source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-map-0-array" count="30" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-vertices">
+          <input semantic="POSITION" source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-positions"/>
+        </vertices>
+        <polylist material="fire_small-material" count="10">
+          <input semantic="VERTEX" source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh-map-0" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 0 2 0 1 3 0 2 2 1 3 1 1 4 4 1 5 1 2 6 0 2 7 4 2 8 0 3 9 3 3 10 4 3 11 3 4 12 2 4 13 4 4 14 3 5 15 0 5 16 5 5 17 0 6 18 1 6 19 5 6 20 1 7 21 2 7 22 5 7 23 2 8 24 3 8 25 5 8 26 0 9 27 1 9 28 2 9 29</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="fire_small_004" name="fire_small_004" type="NODE">
+        <matrix sid="transform">0.005100026 0 0 0.00447607 0 -0.003048783 -0.004088421 0.01651821 0 0.004088421 -0.003048783 0.04354966 0 0 0 1</matrix>
+        <instance_geometry url="#Island_Fire1_Fire_Null_61_Pyramid_111_004-mesh" name="fire_small_004">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="fire_small-material" target="#fire_small-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

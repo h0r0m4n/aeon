@@ -275,12 +275,12 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr('visible', 'true');
 
           d3.select('.sky')
-            .attr('color', '#D8ECAD')
+            .attr('color', '#EC9C82')
             .transition()
               .duration(2000);
 
           d3.select('.sphere')
-            .attr('material', 'color: #D8ECAD; side: double')
+            .attr('material', 'color: #EC9C82; side: double')
 
           // d3.select('.ground')
           //   .attr('material', 'color: #4F3F25')
