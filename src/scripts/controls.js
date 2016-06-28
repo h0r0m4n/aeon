@@ -1423,7 +1423,7 @@ module.exports = {
   },
 
   removeEventListeners: function () {
-    var canvasEl = this.el.sceneEl && this.sceneEl.canvas;
+		var canvasEl = this.el.sceneEl && this.el.sceneEl.canvas;
     if (canvasEl) {
       canvasEl.removeEventListener('mousedown', this.onMouseDown, false);
       canvasEl.removeEventListener('mousemove', this.onMouseMove, false);
@@ -1535,7 +1535,7 @@ module.exports = {
   },
 
   removeEventListeners: function () {
-    var canvasEl = this.el.sceneEl && this.sceneEl.canvas;
+		var canvasEl = this.el.sceneEl && this.el.sceneEl.canvas;
     if (!canvasEl) { return; }
 
     canvasEl.removeEventListener('touchstart', this.onTouchStart);
