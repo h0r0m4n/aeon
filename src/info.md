@@ -20,7 +20,7 @@ Aeon è un’ambiente 3D multipiattaforma di realtà virtuale dove l’utente pe
 *Da considerare*
 
 - È necessario che il browser sia compatibile con il WebGL.
-- Il browser consigliati sono Google Chrome e Firefox.
+- Il browser consigliati sono Google Chrome Canary e Chromium
 - È richiesto un telefono di ultima generazione e top di gamma.
 - Su iPhone 6s Plus è consigliato di disattivare Safari Tab Bar.
 - Gamepad testato è SteelSeries Stratus XL su Android, Mac OS e Windows.
@@ -49,7 +49,7 @@ Aeon è un’ambiente 3D multipiattaforma di realtà virtuale dove l’utente pe
 - Potrebbe essere necessario di riaprire il browser dopo aver collegato Oculus.
 - Gamepad testato SteelSeries Stratus XL.
 
-<span class="note">* l’utilizzo della GPU limitato</span>
+*l’utilizzo della GPU limitato*
 
 ## Tecnologie
 
