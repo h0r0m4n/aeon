@@ -141,6 +141,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (Range.world1()) {
 
+          // [x] Midnight | #000
+
+          d3.select('.scene')
+            // .attr('fog', 'type: linear; color: #000; far: 30');
+            .attr('fog', 'type: exponential; color: #000; density: 0.07');
+
+          d3.select('.light')
+            .attr('visible', 'true')
+            .attr('light', 'type: point; intensity: 3; distance: 50; decay: 2');
+
+          d3.select('.ambient')
+            .attr('light', 'type: ambient; color: #000;');
+
+          d3.select('.directional')
+            .attr('light', 'type: directional; color: #000; intensity: 1');
+
+          // [x] WORLD
+
           d3.select('.world_1_terrain')
             .attr('visible', 'true');
 
@@ -156,9 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
               .duration(2000);
 
           d3.select('.sphere')
-            .attr('material', 'color: #A0FFFF; side: double')
-
-          removeEventListener('componentchanged', true);
+            .attr('material', 'color: #A0FFFF; side: double');
 
           // d3.select('.ground')
           //   .attr('material', 'color: #274D29')
@@ -166,8 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
           //     .duration(2000);
 
         } else {
-
-          // this.addEventListener('componentchanged', true);
 
           d3.select('.world_1_terrain')
             .attr('visible', 'false');
@@ -181,6 +195,23 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (Range.world2()) {
+
+          // [x] 5am
+
+          d3.select('.scene')
+            .attr('fog', 'type: linear; color: #303030; far: 30');
+
+          d3.select('.light')
+            .attr('visible', 'true')
+            .attr('light', 'type: point; intensity: 1; distance: 50; decay: 2');
+
+          d3.select('.ambient')
+            .attr('light', 'type: ambient; color: #303030;');
+
+          d3.select('.directional')
+            .attr('light', 'type: directional; color: #303030; intensity: 1');
+
+          // [x] WORLD
 
           d3.select('.world_2_terrain')
             .attr('visible', 'true');
@@ -212,6 +243,25 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (Range.world3()) {
+
+          // [ ] 6am
+
+          // Invece del colori neutri utilizza colori caldi/freddi
+
+          d3.select('.scene')
+            .attr('fog', 'type: linear; color: #FFF; far: 25');
+
+          d3.select('.light')
+            .attr('visible', 'true')
+            .attr('light', 'type: point; intensity: 0.5; distance: 50; decay: 2');
+
+          d3.select('.ambient')
+            .attr('light', 'type: ambient; color: #FFF;');
+
+          d3.select('.directional')
+            .attr('light', 'type: directional; color: #FFF; intensity: 1');
+
+          // [x] WORLD
 
           d3.select('.world_3_terrain')
             .attr('visible', 'true');
@@ -256,6 +306,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (Range.world4()) {
 
+          // [ ] 9am
+
+          d3.select('.scene')
+            .attr('fog', 'type: linear; color: #FFF; far: 0');
+
+          d3.select('.light')
+            .attr('visible', 'false');
+
+          d3.select('.ambient')
+            .attr('light', 'type: ambient; color: #FFF;');
+
+          d3.select('.directional')
+            .attr('light', 'type: directional; color: #FFF; intensity: 1');
+
+          // [x] WORLD
+
           d3.select('.world_4_terrain')
             .attr('visible', 'true');
 
@@ -277,6 +343,8 @@ document.addEventListener('DOMContentLoaded', function() {
           //   .attr('material', 'color: #235244')
           //   .transition()
           //     .duration(2000);
+
+          // SOUND
 
           var soundtrack = document.querySelector('[sound]');
           soundtrack.play();

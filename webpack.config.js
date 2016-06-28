@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    "./src/scripts/libs.js",
+    "./src/scripts/aframe.js",
     "./src/scripts/controls.js",
     "./src/scripts/d3.js",
     "./src/scripts/scripts.js"
