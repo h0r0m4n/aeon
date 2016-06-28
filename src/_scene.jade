@@ -1,5 +1,5 @@
 //- a-scene#scene(stats, fog="type: linear; color: #A0FFFF; far: 30")
-a-scene.scene
+a-scene.scene(stats)
 
   //- INFOS --------------------------------------------------------------------
 
@@ -8,14 +8,14 @@ a-scene.scene
   
   //- ASSETS ---------------------------------------------------------------
 
-  include _assets.jade
+  include scene/_assets.jade
   //- include _birds.jade
   //- include _test.jade
 
   //- WORLD 1 ------------------------------------------------------------------  
   
   a-entity.world_1_module(position="0 0 0", rotation="0 0 0", visible="false")
-    include _world_1_module.jade
+    include scene/_world_1_module.jade
 
   a-entity.world_1_fire(collada-model="#world_1_fire", scale="1 1 1", position="-32 0 40", rotation="0 0 0", visible="false")
   
@@ -24,14 +24,14 @@ a-scene.scene
   //- WORLD 2 ------------------------------------------------------------------  
   
   a-entity.world_2_module(position="0 0 0", rotation="0 0 0", visible="false")
-    include _world_2_module.jade
+    include scene/_world_2_module.jade
   
   a-entity.world_2_terrain(collada-model="#world_2_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
     
   //- WORLD 3 ------------------------------------------------------------------  
   
   a-entity.world_3_module(position="0 0 0", rotation="0 0 0", visible="false")
-    include _world_3_module.jade
+    include scene/_world_3_module.jade
   
   a-entity.canyon_1(collada-model="#canyon_1", scale="1 1 1", position="51 0 -50", rotation="0 -90 0", visible="false")
   a-entity.canyon_2(collada-model="#canyon_2", scale="1 1 1", position="51 0 -38", rotation="0 -93 0", visible="false")
@@ -41,10 +41,10 @@ a-scene.scene
   //- WORLD 4 ------------------------------------------------------------------  
   
   a-entity.world_4_module(position="0 0 0", rotation="0 0 0", visible="false")
-    include _world_4_module.jade
+    include scene/_world_4_module.jade
     
   a-entity.planet(position="90 0 70", visible="false")
-    include _planet.jade
+    include scene/_planet.jade
 
   a-entity.world_4_terrain(collada-model="#world_4_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
 
@@ -52,22 +52,19 @@ a-scene.scene
 
   a-entity.mountain(selectable, collada-model="#mountain", scale="1 1 1", position="-0.5 0 0", rotation="0 -177 0", visible="true")
 
-  //- ISLAND -------------------------------------------------------------------
-  
-  // perferct range of scale {12>18-24}
-  //- a-entity(collada-model="#island", scale="1 1 1", position="0 0 0", rotation="0 0 0")
-  
-  //- world_1: #274D29 | world_2: #4E4720 | world_3: #4F3F25 | world_4: #235244
-  //- a-entity.ground(geometry="primitive: circle; radius: 64", material="color: #000;", position="0 0 0", rotation="-90 0 0")
-
   //- SEA ----------------------------------------------------------------------
 
   a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #4296BA; transparent: true; opacity: 0.5", position="0 -0.5 0", rotation="-90 0 0")
 
   //- SUN ----------------------------------------------------------------------
 
-  a-entity.sun(position="120 90 44", rotation ="0 -90 0")
-    a-entity(geometry="primitive: circle; radius: 1", material="color: #FFD200", scale="10 10 10")
+  //- a-entity.sun(position="120 90 44", rotation ="0 -90 0")
+  //-   a-entity(geometry="primitive: circle; radius: 1", material="color: #FFD200", scale="10 10 10")
+
+  //- CLOUDS -------------------------------------------------------------------
+  
+  a-entity.clouds(position="64 0 -64", rotation="0 0 0", visible="true")
+    include scene/_clouds.jade
 
   //- Lights -------------------------------------------------------------------
 
