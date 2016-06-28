@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
       z: 4.5
     };
 
-    // https://youtu.be/hM9h1wN4rfU
     var Objs = function() {
 
       this.world1 = {
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         y: 0,
         z: {
-          rangeA: 0,
+          rangeA: 5,
           rangeB: 128
         }
       };
@@ -76,30 +75,30 @@ document.addEventListener('DOMContentLoaded', function() {
         y: 0,
         z: {
           rangeA: -128,
-          rangeB: 0
+          rangeB: 5
         }
       };
 
       this.world3 = {
         x: {
-          rangeA: 0,
+          rangeA: -5,
           rangeB: 128
         },
         y: 0,
         z: {
           rangeA: -128,
-          rangeB: 0
+          rangeB: -10
         }
       };
 
       this.world4 = {
         x: {
-          rangeA: 0,
+          rangeA: -5,
           rangeB: 128
         },
         y: 0,
         z: {
-          rangeA: 0,
+          rangeA: -10,
           rangeB: 128
         }
       };
@@ -143,19 +142,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // [x] Midnight | #000
 
-          d3.select('.scene')
-            // .attr('fog', 'type: linear; color: #000; far: 30');
-            .attr('fog', 'type: exponential; color: #000; density: 0.07');
-
-          d3.select('.light')
-            .attr('visible', 'true')
-            .attr('light', 'type: point; intensity: 3; distance: 50; decay: 2');
-
-          d3.select('.ambient')
-            .attr('light', 'type: ambient; color: #000;');
-
-          d3.select('.directional')
-            .attr('light', 'type: directional; color: #000; intensity: 1');
+          // d3.select('.scene')
+          //   // .attr('fog', 'type: linear; color: #000; far: 30');
+          //   .attr('fog', 'type: exponential; color: #000; density: 0.07');
+          //
+          // d3.select('.light')
+          //   .attr('visible', 'true')
+          //   .attr('light', 'type: point; intensity: 3; distance: 50; decay: 2');
+          //
+          // d3.select('.ambient')
+          //   .attr('light', 'type: ambient; color: #000;');
+          //
+          // d3.select('.directional')
+          //   .attr('light', 'type: directional; color: #000; intensity: 1');
 
           // [x] WORLD
 
@@ -198,18 +197,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // [x] 5am
 
-          d3.select('.scene')
-            .attr('fog', 'type: linear; color: #303030; far: 30');
-
-          d3.select('.light')
-            .attr('visible', 'true')
-            .attr('light', 'type: point; intensity: 1; distance: 50; decay: 2');
-
-          d3.select('.ambient')
-            .attr('light', 'type: ambient; color: #303030;');
-
-          d3.select('.directional')
-            .attr('light', 'type: directional; color: #303030; intensity: 1');
+          // d3.select('.scene')
+          //   .attr('fog', 'type: linear; color: #303030; far: 30');
+          //
+          // d3.select('.light')
+          //   .attr('visible', 'true')
+          //   .attr('light', 'type: point; intensity: 1; distance: 50; decay: 2');
+          //
+          // d3.select('.ambient')
+          //   .attr('light', 'type: ambient; color: #303030;');
+          //
+          // d3.select('.directional')
+          //   .attr('light', 'type: directional; color: #303030; intensity: 1');
 
           // [x] WORLD
 
@@ -248,18 +247,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // Invece del colori neutri utilizza colori caldi/freddi
 
-          d3.select('.scene')
-            .attr('fog', 'type: linear; color: #FFF; far: 25');
-
-          d3.select('.light')
-            .attr('visible', 'true')
-            .attr('light', 'type: point; intensity: 0.5; distance: 50; decay: 2');
-
-          d3.select('.ambient')
-            .attr('light', 'type: ambient; color: #FFF;');
-
-          d3.select('.directional')
-            .attr('light', 'type: directional; color: #FFF; intensity: 1');
+          // d3.select('.scene')
+          //   .attr('fog', 'type: linear; color: #FFF; far: 25');
+          //
+          // d3.select('.light')
+          //   .attr('visible', 'true')
+          //   .attr('light', 'type: point; intensity: 0.5; distance: 50; decay: 2');
+          //
+          // d3.select('.ambient')
+          //   .attr('light', 'type: ambient; color: #FFF;');
+          //
+          // d3.select('.directional')
+          //   .attr('light', 'type: directional; color: #FFF; intensity: 1');
 
           // [x] WORLD
 
@@ -308,17 +307,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // [ ] 9am
 
-          d3.select('.scene')
-            .attr('fog', 'type: linear; color: #FFF; far: 0');
-
-          d3.select('.light')
-            .attr('visible', 'false');
-
-          d3.select('.ambient')
-            .attr('light', 'type: ambient; color: #FFF;');
-
-          d3.select('.directional')
-            .attr('light', 'type: directional; color: #FFF; intensity: 1');
+          // d3.select('.scene')
+          //   .attr('fog', 'type: linear; color: #FFF; far: 0');
+          //
+          // d3.select('.light')
+          //   .attr('visible', 'false');
+          //
+          // d3.select('.ambient')
+          //   .attr('light', 'type: ambient; color: #FFF;');
+          //
+          // d3.select('.directional')
+          //   .attr('light', 'type: directional; color: #FFF; intensity: 1');
 
           // [x] WORLD
 
