@@ -1,5 +1,5 @@
 //- a-scene#scene(stats, fog="type: linear; color: #A0FFFF; far: 30")
-a-scene.scene
+a-scene.scene(stats)
 
   //- INFOS --------------------------------------------------------------------
 
@@ -49,13 +49,17 @@ a-scene.scene
 
   a-entity.world_4_terrain(collada-model="#world_4_terrain", scale="1 1 1", position="0 0 0", rotation="0 0 0", visible="false")
 
+  //- ROAD ---------------------------------------------------------------------
+
+  a-entity.road(collada-model="#road", scale="1 1 1", position="0 0.25 0", rotation="0 -180 -180", visible="true")
+
   //- MOUNTAIN -----------------------------------------------------------------
 
-  a-entity.mountain(selectable, collada-model="#mountain", scale="1 1 1", position="-0.5 0 0", rotation="0 -177 0", visible="true")
+  a-entity.mountain(collada-model="#mountain", scale="1 1 1", position="-0.5 0 -1.5", rotation="0 -177 0", visible="true")
 
   //- SEA ----------------------------------------------------------------------
 
-  a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #ffeba0; transparent: true; opacity: 0.5", position="0 -0.5 0", rotation="-90 0 0")
+  a-entity.sea(geometry="primitive: circle; radius: 256", material="side: double; color: #FFF; transparent: true; opacity: 0.5", position="0 -0.5 0", rotation="-90 0 0")
 
   //- SUN ----------------------------------------------------------------------
 
@@ -81,12 +85,12 @@ a-scene.scene
   a-entity.sphere(geometry="primitive: sphere; radius: 128", material="color: #CCC; side: double")
   
   //- SOUND --------------------------------------------------------------------
-  
+
   a-entity.soundtrack(sound="src: objects/soundtrack.mp3")
 
-  //- PLAYER -------------------------------------------------------------------
+  //- PLAYER | -31 1.5 44 | -36 1.5 2.22 ---------------------------------------
 
-  a-entity#camera-player(camera="true", universal-controls, position="6.64 1.5 -40.10")
+  a-entity#camera-player(camera="true", universal-controls, position="-31 1.5 44")
     a-entity.light(light="type: point; intensity: 3; distance: 50; decay: 2" position="0 0 0", rotation="0 0 0", visible="false")
 
   a-entity#camera-top(camera="false", position="0 75 0", rotation="-90 0 0")

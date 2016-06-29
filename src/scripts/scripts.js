@@ -175,6 +175,9 @@ document.addEventListener('DOMContentLoaded', function() {
           d3.select('.sphere')
             .attr('material', 'color: #A0FFFF; side: double');
 
+          d3.select('.sea')
+            .attr('material', 'side: double; color: #225267; transparent: true; opacity: 0.5');
+
           // d3.select('.ground')
           //   .attr('material', 'color: #274D29')
           //   .transition()
@@ -224,7 +227,10 @@ document.addEventListener('DOMContentLoaded', function() {
               .duration(2000);
 
           d3.select('.sphere')
-            .attr('material', 'color: #D6FFC5; side: double')
+            .attr('material', 'color: #D6FFC5; side: double');
+
+          d3.select('.sea')
+            .attr('material', 'side: double; color: #185141; transparent: true; opacity: 0.5');
 
           // d3.select('.ground')
           //   .attr('material', 'color: #4E4720')
@@ -280,7 +286,10 @@ document.addEventListener('DOMContentLoaded', function() {
               .duration(2000);
 
           d3.select('.sphere')
-            .attr('material', 'color: #EC9C82; side: double')
+            .attr('material', 'color: #EC9C82; side: double');
+
+          d3.select('.sea')
+            .attr('material', 'side: double; color: #ffeba0; transparent: true; opacity: 0.5');
 
           // d3.select('.ground')
           //   .attr('material', 'color: #4F3F25')
@@ -336,7 +345,10 @@ document.addEventListener('DOMContentLoaded', function() {
               .duration(2000);
 
           d3.select('.sphere')
-            .attr('material', 'color: #DAE2B1; side: double')
+            .attr('material', 'color: #DAE2B1; side: double');
+
+          d3.select('.sea')
+            .attr('material', 'side: double; color: #7C7759; transparent: true; opacity: 0.75');
 
           // d3.select('.ground')
           //   .attr('material', 'color: #235244')
