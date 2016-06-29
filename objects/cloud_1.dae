@@ -5,14 +5,14 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
     </contributor>
-    <created>2016-06-13T18:32:39</created>
-    <modified>2016-06-13T18:32:39</modified>
+    <created>2016-06-27T00:23:21</created>
+    <modified>2016-06-27T00:23:21</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_images/>
   <library_effects>
-    <effect id="cloud-effect">
+    <effect id="Material-effect">
       <profile_COMMON>
         <technique sid="common">
           <lambert>
@@ -23,7 +23,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.64 0.64 0.64 1</color>
+              <color sid="diffuse">0.75 0.75 0.75 1</color>
             </diffuse>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>
@@ -34,8 +34,8 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="cloud-material" name="cloud">
-      <instance_effect url="#cloud-effect"/>
+    <material id="Material-material" name="Material">
+      <instance_effect url="#Material-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -64,7 +64,7 @@
         <vertices id="Icosphere_031-mesh-vertices">
           <input semantic="POSITION" source="#Icosphere_031-mesh-positions"/>
         </vertices>
-        <polylist material="cloud-material" count="60">
+        <polylist material="Material-material" count="60">
           <input semantic="VERTEX" source="#Icosphere_031-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Icosphere_031-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -81,7 +81,7 @@
         <instance_geometry url="#Icosphere_031-mesh" name="cloud_1">
           <bind_material>
             <technique_common>
-              <instance_material symbol="cloud-material" target="#cloud-material"/>
+              <instance_material symbol="Material-material" target="#Material-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>

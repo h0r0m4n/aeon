@@ -23,7 +23,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.6653874 0.04231142 0.03688946 1</color>
+              <color sid="diffuse">0.01850888 0.5011644 0.605502 1</color>
             </diffuse>
             <index_of_refraction>
               <float sid="index_of_refraction">1</float>

@@ -23,10 +23,10 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.2581829 0.2581829 0.2581829 1</color>
+              <color sid="diffuse">0.225 0.225 0.225 1</color>
             </diffuse>
             <specular>
-              <color sid="specular">0.1 0.1 0.1 1</color>
+              <color sid="specular">0 0 0 1</color>
             </specular>
             <shininess>
               <float sid="shininess">50</float>
