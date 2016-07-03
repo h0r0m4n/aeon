@@ -12,15 +12,15 @@ var imagemin      = require('gulp-imagemin');
 
 var webpackstream = require('webpack-stream');
 
-var sass         = require('gulp-sass'),
-    combineMq    = require('gulp-combine-mq'),
-    autoprefixer = require('gulp-autoprefixer'),
-    cssnano      = require('gulp-cssnano'),
-    shorthand    = require('gulp-shorthand');
+var sass          = require('gulp-sass'),
+    combineMq     = require('gulp-combine-mq'),
+    autoprefixer  = require('gulp-autoprefixer'),
+    cssnano       = require('gulp-cssnano'),
+    shorthand     = require('gulp-shorthand');
 
-var cheerio      = require('gulp-cheerio'),
-    svgstore     = require('gulp-svgstore'),
-    svgmin       = require('gulp-svgmin');
+var cheerio       = require('gulp-cheerio'),
+    svgstore      = require('gulp-svgstore'),
+    svgmin        = require('gulp-svgmin');
 
 var browserSync   = require('browser-sync'),
     reload        = browserSync.reload;
@@ -143,7 +143,11 @@ gulp.task('objects-watch', ['objects'], reload);
 
 var FILES_TO_COPY = [
     './src/*.txt',
-    './src/CNAME'
+    './src/CNAME',
+    './src/*.png',
+    './src/favicon.ico',
+    './src/*.json',
+    './src/*.svg'
 ];
 
 gulp.task('copy', function () {

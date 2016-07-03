@@ -13,7 +13,7 @@ head
   
   meta(property="og:title" content="#{title}")
   meta(property="og:description" content="#{description}")
-  meta(property="og:image" content="#{thumbnail}")
+  meta(property="og:image" content="#{url}/#{thumbnail}")
   meta(property="og:url" content="#{url}")
   meta(property="fb:app_id" content="#{facebookAppID}")
   
@@ -21,11 +21,15 @@ head
   
   meta(name="twitter:title" content="#{title}")
   meta(name="twitter:description" content="#{description}")
-  meta(name="twitter:image" content="#{thumbnail}")
+  meta(name="twitter:image" content="#{url}/#{thumbnail}")
   meta(name="twitter:card" content="summary_large_image")
   meta(name="twitter:site" content="#{twitter}")
   
-  link(rel="icon", sizes="192x192", href="img/icon-192.png")
   link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,700")
   link(rel="stylesheet", href="css/all.css")
+  link(rel="apple-touch-icon", sizes="180x180", href="/apple-touch-icon.png")
+  link(rel="icon", type="image/png", href="/favicon-32x32.png", sizes="32x32")
+  link(rel="icon", type="image/png", href="/favicon-16x16.png", sizes="16x16")
+  link(rel="manifest", href="/manifest.json")
+  link(rel="mask-icon", href="/safari-pinned-tab.svg", color="#000000")
   script(src="js/all.js")
