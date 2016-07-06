@@ -8,6 +8,8 @@ var gulp          = require('gulp'),
 
 var jade          = require('gulp-jade');
 
+var prettyData    = require('gulp-pretty-data');
+
 var imagemin      = require('gulp-imagemin');
 
 var webpackstream = require('webpack-stream');
@@ -132,8 +134,9 @@ gulp.task('images-watch', ['images'], reload);
 
 // OBJECTS ---------------------------------------------------------------------
 
-gulp.task('objects', function () {
-  return gulp.src('./src/objects/*')
+gulp.task('objects', function() {
+  gulp.src('./src/objects/**.{dae,obj,mtl}')
+    .pipe(prettyData({type: 'minify', preserveComments: true}))
     .pipe(gulp.dest('./dist/objects'));
 });
 
@@ -147,6 +150,7 @@ var FILES_TO_COPY = [
     './src/*.png',
     './src/favicon.ico',
     './src/*.json',
+    './src/*.xml',
     './src/*.svg'
 ];
 
@@ -155,9 +159,16 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('./dist'));
 });
 
+// MEDIA ------------------------------------------------------------------------
+
+gulp.task('media', function () {
+  return gulp.src('./src/media/*')
+    .pipe(gulp.dest('./dist/media'));
+});
+
 // DEFAULT/WATCH ---------------------------------------------------------------
 
-gulp.task('default', ['clean', 'icons', 'jade', 'scripts', 'stylesheets', 'images', 'objects', 'copy'], function () {
+gulp.task('default', ['clean', 'icons', 'jade', 'scripts', 'stylesheets', 'images', 'objects', 'copy', 'media'], function () {
 
   browserSync({
     server: './dist',
