@@ -137,7 +137,7 @@ gulp.task('images-watch', ['images'], reload);
 // OBJECTS ---------------------------------------------------------------------
 
 gulp.task('objects', function() {
-  gulp.src('./src/objects/**.{dae,obj,mtl}')
+  return gulp.src('./src/objects/*')
     .pipe(prettyData({type: 'minify', preserveComments: true}))
     .pipe(gulp.dest('./dist/objects'));
 });
