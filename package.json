@@ -1,7 +1,7 @@
 {
   "name": "aeon",
   "description": "A prequel WebVR environment to videogame Aeon",
-  "version": "0.0.3",
+  "version": "0.8",
   "private": true,
   "repository": {
     "type": "git",
