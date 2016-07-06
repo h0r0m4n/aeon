@@ -22,6 +22,7 @@
     "gulp-combine-mq": "^0.4.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-gh-pages": "^0.5.4",
+    "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.1.0",

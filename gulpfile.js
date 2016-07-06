@@ -6,7 +6,8 @@ var gulp          = require('gulp'),
     del           = require('del'),
     ghPages       = require('gulp-gh-pages');
 
-var jade          = require('gulp-jade');
+var jade          = require('gulp-jade'),
+    htmlmin       = require('gulp-htmlmin');
 
 var prettyData    = require('gulp-pretty-data');
 
@@ -70,6 +71,7 @@ gulp.task('jade', function() {
     .pipe(jade({
       locals: YOUR_LOCALS
     }))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./dist/'))
 });
 
