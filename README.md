@@ -1,6 +1,8 @@
 # Aeon
 
-A prequel WebVR environment to videogame Aeon
+![gameplay](aeon-gameplay.gif)
+
+Aeon is a 3D environment with VR support, where the user runs an island that tells about the prequel to the main story of Aeon.
 
 ## Local Installation and Development
 
