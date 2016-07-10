@@ -379,6 +379,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // NAV -----------------------------------------------------------------------
 
+  // TODO https://www.youtube.com/watch?v=thNyy5eYfbc | https://github.com/GoogleChrome/ui-element-samples/blob/gh-pages/side-nav/side-nav.js
+
   var infoOpener = document.getElementById('infoOpener'),
       app = document.getElementById('app');
 

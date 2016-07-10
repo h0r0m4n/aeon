@@ -61,7 +61,7 @@ Aeon is a 3D environment with VR support, where the user runs an island that tel
 
 ## Team
 
-- Roman Horokhovatskyy
+- Roman Horokhovatskyy – [@h0r0man](http://twitter.com/h0r0man), [GitHub](https://github.com/h0r0man), [LinkedIn](https://it.linkedin.com/in/horoman/en)
 
 ## Thanks
 
