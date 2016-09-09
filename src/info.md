@@ -67,7 +67,3 @@ Aeon is a 3D environment with VR support, where the user runs an island that tel
 
 - Giuseppe Messina *(software developer)*
 - Don McCurdy *(software developer @Google)*
-
-## Licence
-
-[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)
