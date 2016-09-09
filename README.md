@@ -11,7 +11,3 @@ Aeon is a 3D environment with VR support, where the user runs an island that tel
 - `npm install` to download all dependencies
 - `gulp` to run workflow automatization
 - `gulp deploy` to to publish contents to [Github pages](https://pages.github.com/)
-
-## License
-
-[GNU General Public License v3.0](LICENSE)
