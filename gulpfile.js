@@ -187,6 +187,10 @@ gulp.task('default', ['clean', 'icons', 'jade', 'scripts', 'stylesheets', 'image
   gulp.watch('./src/images/*',                     ['images-watch']);
 });
 
+// BUILD -----------------------------------------------------------------------
+
+gulp.task('build', ['clean', 'icons', 'jade', 'scripts', 'stylesheets', 'images', 'objects', 'copy', 'media']);
+
 // DEPLOY ----------------------------------------------------------------------
 
 gulp.task('deploy', function() {
