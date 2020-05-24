@@ -124,11 +124,11 @@ gulp.task('scripts', function() {
 gulp.task('images', function () {
   return gulp.src('./src/images/*')
     .pipe(plumber())
-    .pipe(imagemin({
-      optimizationLevel: 5,
-      progressive: true,
-      interlaced: true
-    }))
+    // .pipe(imagemin({
+    //   optimizationLevel: 5,
+    //   progressive: true,
+    //   interlaced: true
+    // }))
     .pipe(gulp.dest('./dist/img/'));
 });
 
