@@ -4,3 +4,4 @@ npm-debug.log
 dist
 *.publish
 src/icons/tmp
+package-lock.json
